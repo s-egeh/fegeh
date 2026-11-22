@@ -160,12 +160,15 @@ export function ImagePlaceholder({
 /**
  * Wordmark tile for a client whose logo file has not been supplied. A
  * third-party logo is never invented, redrawn or downloaded.
+ *
+ * Set in --ink-700 (7.80:1 on bone), deepening to --ink-900 on hover. Not
+ * --ink-500: that measures 4.33:1 on bone and fails AA at this size.
  */
 export function WordmarkTile({ name, className }: { name: string; className?: string }) {
   return (
     <span
       className={cn(
-        'flex items-center justify-center px-4 text-center font-mono text-[11px] font-medium uppercase leading-tight tracking-[0.12em] text-ink-500',
+        'flex items-center justify-center px-4 text-center font-mono text-[11px] font-medium uppercase leading-tight tracking-[0.12em] text-ink-700',
         className,
       )}
     >

@@ -350,11 +350,12 @@ accent — the logo has no red — so gold is the only accent: emphasis is gold,
 | `--gold-ink` on white | 5.42:1 | AA |
 | `--slate-600` on bone | 4.94:1 | AA |
 
-Three adjustments sit on top of the palette:
+Four adjustments sit on top of the palette:
 
 | Pair | Measured | Change |
 |---|---|---|
 | `--slate-400` on `--ink-800` (CTA band, placeholders) | 4.39:1 — fails | Lifted from `#A0A6AA` to `#A5ABAF` (4.66:1 on `--ink-800`, 5.62:1 on `--ink-900`). Visually indistinguishable. |
+| `--ink-500` on bone (client wordmark tiles, 11px) | 4.33:1 — fails | `WordmarkTile` set in `--ink-700` instead (7.80:1 on bone). `--ink-500` is not a text colour on light surfaces. |
 | Primary button hover — ink on `--gold-d` | 4.03:1 — fails | Hover inverts to an ink fill with a white label (13.05:1) inside a gold border instead. |
 | Focus ring — gold on bone | 1.54:1 — under the 3:1 minimum | Two-tone ring: an ink ring tight to the element and a gold outline outside it, so one is always visible on light and dark surfaces. |
 
@@ -378,7 +379,7 @@ Run on the Fegeh Logistics build, 2026-11-22 (Next.js 14.2.35, Node 24):
 | `scripts/audit.mjs` | 17 routes | Pass |
 | `scripts/verify.mjs` | 16 routes × 8 widths, incl. header nav contrast | Pass |
 | `scripts/verify-mobile.mjs` | 16 routes × 5 widths, touch | Pass |
-| `scripts/verify-menu.mjs` | 18 mega-menu checks | Not re-run for the rebrand; it passed on the previous build and the menu's structure is unchanged |
+| `scripts/verify-menu.mjs` | 18 mega-menu checks | Pass |
 
 Two build-environment problems came up during that run. Neither is in the code, but both look
 like site faults:
