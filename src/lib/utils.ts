@@ -18,7 +18,7 @@ export function pad(n: number) {
  * site: if the apex redirects to www (or the reverse), every canonical, sitemap
  * entry and share-card URL points at a redirect.
  */
-export const DEFAULT_SITE_URL = 'https://4jasminedrive.com';
+export const DEFAULT_SITE_URL = 'https://fegehlogistics.com';
 
 export function absoluteUrl(path = '/') {
   const base = (process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || DEFAULT_SITE_URL).replace(

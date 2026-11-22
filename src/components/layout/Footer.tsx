@@ -52,7 +52,7 @@ export function Footer() {
       <div className="container-site grid grid-cols-1 gap-x-8 gap-y-12 py-16 md:grid-cols-2 md:py-20 lg:grid-cols-4">
         <div className="flex flex-col gap-6">
           <Link href="/" aria-label={`${COMPANY.name} — home`} className="inline-block">
-            <Logo variant="full-dark" className="h-24" />
+            <Logo variant="full-dark" className="h-16" />
           </Link>
 
           <p className="max-w-[34ch] t-small text-slate-400">{COMPANY.tagline}</p>

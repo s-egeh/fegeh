@@ -231,7 +231,7 @@ export const FAQ_GROUPS: FaqGroup[] = [
         question: 'Do you clear goods through customs?',
         answer:
           'We support the documentation and coordinate the movement with the port and your clearing agent. Where a licensed customs broker is required, we tell you at the outset.',
-        pending: 'Confirm whether 4Jasmine Dr holds a customs broker licence or works through a partner.',
+        pending: 'Confirm whether Fegeh Logistics holds a customs broker licence or works through a partner.',
       },
       {
         question: 'Do you handle both imports and exports?',

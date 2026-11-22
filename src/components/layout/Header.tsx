@@ -327,7 +327,7 @@ export function Header() {
 
                 const labelClass = cn(
                   'group relative inline-flex items-center gap-1.5 py-2 font-mono text-[13px] font-medium uppercase leading-none tracking-[0.1em] transition-colors duration-fast',
-                  // Nav contrast: 0.82 white on ink is 12.4:1, well clear of AA.
+                  // Nav contrast: 0.82 white on ink is 9.23:1, well clear of AA.
                   // Never grey on grey.
                   active || expanded ? 'text-white' : 'text-white/[0.82] hover:text-white',
                 );

@@ -4,7 +4,7 @@ import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/Button';
 
-const STORAGE_KEY = '4jasmine:consent';
+const STORAGE_KEY = 'fegeh:consent';
 
 declare global {
   interface Window {

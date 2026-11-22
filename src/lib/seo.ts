@@ -2,11 +2,11 @@ import type { Metadata } from 'next';
 import { isImageAvailable } from './images';
 import { absoluteUrl } from './utils';
 
-export const SITE_NAME = '4Jasmine Dr';
-export const TITLE_TEMPLATE = '%s | 4Jasmine Dr';
+export const SITE_NAME = 'Fegeh Logistics';
+export const TITLE_TEMPLATE = '%s | Fegeh Logistics';
 
 /** The homepage keeps this title rather than the template. Used by the root layout and the homepage. */
-export const HOME_TITLE = '4Jasmine Dr | Logistics & Distribution in Tema, Ghana';
+export const HOME_TITLE = 'Fegeh Logistics | Logistics & Distribution in Tema, Ghana';
 export const HOME_DESCRIPTION =
   'Logistics and distribution from the Free Zone Enclave in Tema: road freight, warehousing, last-mile distribution and freight forwarding across Ghana.';
 

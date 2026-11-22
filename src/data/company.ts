@@ -40,10 +40,10 @@ export interface BusinessHours {
 }
 
 export const COMPANY = {
-  name: '4Jasmine Dr',
-  /** [TODO-CLIENT] Confirm the registered legal name. */
-  legalName: '4Jasmine Dr',
-  /** Descriptor from the logo lockup. */
+  name: 'Fegeh Logistics',
+  /** Registered legal name, confirmed by the client. */
+  legalName: 'Fegeh Logistics',
+  /** Descriptor. Not in the Fegeh logo, which reads "FEGEH LOGISTICS" only. */
   descriptor: 'Logistics & Distribution',
   tagline:
     'Logistics and distribution from the Free Zone Enclave, Tema — nationwide and across West Africa.',
@@ -54,13 +54,18 @@ export const COMPANY = {
    * drafted for this site. [TODO-CLIENT] Set to the date the reviewed policies
    * are published.
    */
-  policiesUpdated: '8 November 2026',
+  policiesUpdated: '22 November 2026',
 
-  /** [TODO-CLIENT] Confirm. This address is assumed from the domain, not supplied. */
-  email: 'info@4jasminedrive.com',
+  /**
+   * [TODO-CLIENT] Confirm before launch. This address is assumed from the new
+   * domain, fegehlogistics.com — it was not supplied, and no mailbox exists for
+   * it yet. It appears on every page and receives the contact and quote forms,
+   * so the mailbox must be created, or this address changed, before launch.
+   */
+  email: 'info@fegehlogistics.com',
 
   phones: [
-    { label: 'Operations', display: '+233 53 771 6237', tel: '+233537716237' },
+    { label: 'Operations', display: '024 454 668', tel: '+23324454668' },
   ] satisfies Phone[],
 
   addresses: [
@@ -80,8 +85,8 @@ export const COMPANY = {
    * Read from NEXT_PUBLIC_WHATSAPP so it can be swapped without a code change;
    * the default is the operations number.
    */
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || '233537716237',
-  whatsappPrefill: 'Hello 4Jasmine Dr, I would like to enquire about ',
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || '23324454668',
+  whatsappPrefill: 'Hello Fegeh Logistics, I would like to enquire about ',
 
   /**
    * [TODO-CLIENT] Social accounts. The footer and top bar render nothing at all
@@ -139,7 +144,7 @@ export const MISSION =
   "To move, store and deliver our clients' goods with care and on schedule, with clear communication from the first enquiry to the final handover.";
 
 export const GOVERNANCE =
-  '4Jasmine Dr is committed to running its operations with clear lines of responsibility, honest communication with clients, and compliance with the regulatory requirements that apply to transport, warehousing and trade in Ghana.';
+  'Fegeh Logistics is committed to running its operations with clear lines of responsibility, honest communication with clients, and compliance with the regulatory requirements that apply to transport, warehousing and trade in Ghana.';
 
 export interface CoreValue {
   title: string;
@@ -211,10 +216,10 @@ export const FUTURE_PLANS: { index: string; title: string; description: string }
 
 /** The company paragraphs, used on home and about. */
 export const COMPANY_OVERVIEW_PARAGRAPHS = [
-  '4Jasmine Dr is a logistics and distribution business based in the Free Zone Enclave in Tema, within reach of Tema Port and the trunk roads that carry goods inland and along the coast.',
+  'Fegeh Logistics is a logistics and distribution business based in the Free Zone Enclave in Tema, within reach of Tema Port and the trunk roads that carry goods inland and along the coast.',
   'The business moves, stores and distributes goods for companies that import, manufacture and trade: road freight across Ghana, warehousing and inventory handling, scheduled and last-mile distribution, and support with the documentation that import and export movements depend on.',
   'The aim is simple — to be the partner a client can plan around, with clear quotes, realistic timelines and one point of contact from collection to delivery.',
 ];
 
 export const BUSINESS_MODEL_PARAGRAPH =
-  'Clients engage 4Jasmine Dr per consignment or under an ongoing arrangement. Each piece of work is quoted against the service, the volume, the route and the timing, so the price is agreed before anything moves.';
+  'Clients engage Fegeh Logistics per consignment or under an ongoing arrangement. Each piece of work is quoted against the service, the volume, the route and the timing, so the price is agreed before anything moves.';

@@ -23,7 +23,7 @@ import { pageMetadata } from '@/lib/seo';
  */
 export const metadata: Metadata = pageMetadata({
   title: 'Style guide',
-  description: 'Internal component reference for the 4Jasmine Dr website.',
+  description: 'Internal component reference for the Fegeh Logistics website.',
   path: '/styleguide',
   noindex: true,
 });

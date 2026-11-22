@@ -109,7 +109,7 @@ export async function POST(request: Request) {
    * Resend. CONTACT_TO_EMAIL is where enquiries are delivered and falls back to
    * the address published on the site. CONTACT_FROM_EMAIL must be on a domain
    * verified in the Resend account; a bare address is given the display name
-   * "4Jasmine Dr website" so enquiries are recognisable in the inbox.
+   * "Fegeh Logistics website" so enquiries are recognisable in the inbox.
    */
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL || COMPANY.email;

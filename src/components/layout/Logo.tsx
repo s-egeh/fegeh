@@ -4,12 +4,13 @@ import { cn } from '@/lib/utils';
 interface LogoProps {
   /**
    * `dark` = horizontal lockup for placing ON a dark surface (header, drawer):
-   *          the mark beside the white "4Jasmine Dr" wordmark.
-   * `full-dark` = the full stacked lockup with a white wordmark, for the ink
-   *          footer and anywhere else there is room for the descriptor.
-   * `light` = the full stacked lockup in its original navy, for light surfaces
+   *          the FL mark beside the wordmark block, "FEGEH" in white over the
+   *          gold "LOGISTICS".
+   * `full-dark` = the full lockup as supplied — mark, divider bar, wordmark —
+   *          with "FEGEH" in white, for the ink footer.
+   * `light` = the full lockup in its original navy and gold, for light surfaces
    *          (documents, print). The site has no light header.
-   * `mark` = the truck-and-leaf mark alone, for dark surfaces (preloader).
+   * `mark` = the FL monogram and its swoosh alone, for dark surfaces (preloader).
    */
   variant?: 'dark' | 'full-dark' | 'light' | 'mark';
   size?: 'sm' | 'md';
@@ -21,30 +22,37 @@ interface LogoProps {
  * Every file below is generated from the client's artwork by
  * scripts/build-logo-variants.mjs — see that script for how and why.
  *
- * Two adjustments are made for dark surfaces, and only there:
- *
- * 1. The WORDMARK is navy (#0E2C4E) — the same colour as the header and footer
- *    it sits on, so it is redrawn in white with its edges intact.
- * 2. The MARK's grey leaf and route line (#686C6F) measure 2.66:1 against the
- *    navy surface and turn muddy, so the dark-surface mark lifts that one grey
- *    to #9AA0A4 (5.33:1). The gold truck is left exactly as drawn.
+ * One adjustment is made for dark surfaces, and only there: "FEGEH" is navy
+ * (#112C6E) — the same colour as the header and footer it sits on — so it is
+ * redrawn in white with its edges intact. Everything else in the logo is gold
+ * (#FDC007), which reads at 7.90:1 on that navy and is left exactly as drawn.
+ * The mark has no navy in it at all, so the dark-surface mark is the same
+ * artwork as the light one.
  *
  * On light surfaces the original colours are used unchanged.
  *
- * Intrinsic sizes: mark 257x257, wordmark 682x88, full lockup 698x439.
+ * Intrinsic sizes: mark 452x452 (the monogram is 452x348, centred on a square
+ * canvas), wordmark 810x298, full lockup 1358x364.
  */
-const MARK_DARK = '/brand/4jasmine-logo-mark-dark.png';
-const WORDMARK_WHITE = '/brand/4jasmine-wordmark-white.png';
-const FULL = '/brand/4jasmine-logo-full.png';
-const FULL_WHITE = '/brand/4jasmine-logo-full-white.png';
+const MARK_DARK = '/brand/fegeh-logo-mark-dark.png';
+const WORDMARK_WHITE = '/brand/fegeh-wordmark-white.png';
+const FULL = '/brand/fegeh-logo-full.png';
+const FULL_WHITE = '/brand/fegeh-logo-full-white.png';
 
-const WORDMARK_RATIO = 88 / 682;
-const FULL_RATIO = 439 / 698;
+const WORDMARK_RATIO = 298 / 810;
+const FULL_RATIO = 364 / 1358;
 
-/** Display sizes: mark height and wordmark width, in CSS pixels. */
+/*
+ * Display sizes: mark square and wordmark width, in CSS pixels.
+ *
+ * Chosen so the pair keeps the proportions of the supplied lockup, where the
+ * wordmark block stands 0.86 times the height of the monogram. The monogram
+ * fills 77% of its square, so a 48px square shows a 37px monogram beside a
+ * 32px wordmark.
+ */
 const SIZES = {
-  sm: { mark: 32, wordmark: 112 },
-  md: { mark: 40, wordmark: 140 },
+  sm: { mark: 40, wordmark: 72 },
+  md: { mark: 48, wordmark: 88 },
 };
 
 export function Logo({ variant = 'dark', size = 'md', className, priority = false }: LogoProps) {
@@ -65,13 +73,13 @@ export function Logo({ variant = 'dark', size = 'md', className, priority = fals
   }
 
   /*
-   * The stacked lockups are sized by the caller's height class (h-24 and so on)
-   * with w-auto; the width and height given here are the display size at
-   * md, so next/image builds its srcset around that rather than the 698px
+   * The full lockups are sized by the caller's height class (h-16 and so on)
+   * with w-auto; the width and height given here are the footer's display
+   * size, so next/image builds its srcset around that rather than the 1358px
    * source.
    */
   if (variant === 'light' || variant === 'full-dark') {
-    const height = 112;
+    const height = 64;
     return (
       <Image
         src={variant === 'light' ? FULL : FULL_WHITE}
@@ -100,10 +108,6 @@ export function Logo({ variant = 'dark', size = 'md', className, priority = fals
         the menu button compete for a 312px row, and the first thing to give is
         the gap between the logo and the menu button. The mark alone is
         unambiguous — it is the same artwork the favicon uses.
-
-        The "LOGISTICS & DISTRIBUTION" descriptor is not part of this lockup: at
-        header width it would be under six pixels tall. The footer's stacked
-        lockup carries it.
       */}
       <Image
         src={WORDMARK_WHITE}

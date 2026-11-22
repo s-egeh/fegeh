@@ -23,7 +23,7 @@ import { chromium } from 'playwright';
 import sharp from 'sharp';
 
 const OUT = path.join('public', 'brand', 'og-image.jpg');
-const LOCKUP = path.join('public', 'brand', '4jasmine-logo-full-white.png');
+const LOCKUP = path.join('public', 'brand', 'fegeh-logo-full-white.png');
 
 const companySource = await readFile(path.join('src', 'data', 'company.ts'), 'utf8');
 const match = companySource.match(/^\s*tagline:\s*'([^']+)'/m);
@@ -45,12 +45,13 @@ const html = `<!doctype html>
 <style>
   html, body { margin: 0; width: 1200px; height: 630px; }
   body {
-    background: #0E2C4E;
+    background: #112C6E;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     gap: 34px;
   }
-  img { height: 330px; width: auto; display: block; }
-  .rule { width: 72px; height: 3px; background: #CB9F46; }
+  /* The lockup is horizontal (1358x364), so it is sized by width. */
+  img { width: 760px; height: auto; display: block; }
+  .rule { width: 72px; height: 3px; background: #FDC007; }
   p {
     margin: 0; max-width: 880px; text-align: center;
     font: 600 30px/1.35 'Archivo', sans-serif;

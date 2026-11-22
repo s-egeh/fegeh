@@ -103,7 +103,7 @@ export const SERVICES: Service[] = [
       'Collection and delivery planned to agreed windows.',
     ],
     overview: [
-      '4Jasmine Dr moves goods by road across Ghana from its base in the Free Zone Enclave, Tema — whole truckloads for clients with the volume to fill a vehicle, and part loads for consignments that do not.',
+      'Fegeh Logistics moves goods by road across Ghana from its base in the Free Zone Enclave, Tema — whole truckloads for clients with the volume to fill a vehicle, and part loads for consignments that do not.',
       'A full load travels direct from collection to delivery. A part load shares the vehicle with other consignments heading the same way, which brings the cost down when the volume does not justify a truck of its own.',
       'Either way, the movement is planned against the collection and delivery windows you give us, and the price is agreed before anything is loaded.',
     ],
@@ -163,7 +163,7 @@ export const SERVICES: Service[] = [
       'Cross-docking from inbound to outbound.',
     ],
     overview: [
-      'Storage sits between the port and the market. 4Jasmine Dr holds goods for clients who need somewhere to put them between arrival and sale — for a few days while a consignment is broken down, or for as long as the stock takes to move.',
+      'Storage sits between the port and the market. Fegeh Logistics holds goods for clients who need somewhere to put them between arrival and sale — for a few days while a consignment is broken down, or for as long as the stock takes to move.',
       'Goods are received against your paperwork, recorded, and released on your instruction. Where a consignment does not need to be stored at all, cross-docking moves it from the inbound vehicle to the outbound one with no time on the shelf.',
       'Because storage, haulage and distribution are run together, goods can leave the warehouse on our own vehicles without a second company being brought in.',
     ],
@@ -223,7 +223,7 @@ export const SERVICES: Service[] = [
       'Dispatch from our warehouse or collection from yours.',
     ],
     overview: [
-      'Distribution is the part of the chain your customers see. 4Jasmine Dr delivers to the retailers, wholesalers and trade customers who buy from you — on a scheduled run to regular delivery points, or as last-mile deliveries when an order needs to go out on its own.',
+      'Distribution is the part of the chain your customers see. Fegeh Logistics delivers to the retailers, wholesalers and trade customers who buy from you — on a scheduled run to regular delivery points, or as last-mile deliveries when an order needs to go out on its own.',
       'Goods can be dispatched from stock held in our warehouse, or collected from yours and delivered on.',
       'A delivery is not finished until it is handed over. Each drop is planned around the delivery point — its access, its receiving hours, and who is there to sign for it.',
     ],
@@ -283,7 +283,7 @@ export const SERVICES: Service[] = [
       'Onward storage or delivery once goods are released.',
     ],
     overview: [
-      'An import or export movement involves more parties than a road delivery — the shipping line, the port, customs, and often a clearing agent. 4Jasmine Dr coordinates the movement between them so that you have one point of contact instead of several.',
+      'An import or export movement involves more parties than a road delivery — the shipping line, the port, customs, and often a clearing agent. Fegeh Logistics coordinates the movement between them so that you have one point of contact instead of several.',
       'We support the documentation the movement depends on: checking that the paperwork is complete and consistent before the goods arrive, and following it through the port.',
       'Once goods are released, they can come straight into storage in the Free Zone Enclave or go on to their destination on our vehicles, without changing hands again.',
     ],

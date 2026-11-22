@@ -11,7 +11,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Frequently asked questions',
   description:
-    'Answers on delivery coverage, full and part loads, warehousing and cross-docking, distribution, freight forwarding and getting a quote from 4Jasmine Dr.',
+    'Answers on delivery coverage, full and part loads, warehousing and cross-docking, distribution, freight forwarding and getting a quote from Fegeh Logistics.',
   path: '/faq',
 });
 

@@ -13,7 +13,7 @@ import { whatsappHref } from '@/lib/utils';
 export const metadata: Metadata = pageMetadata({
   title: 'Request a quote',
   description:
-    'Send 4Jasmine Dr the goods, the collection and delivery points and the dates, and operations will return written pricing for freight, storage or delivery.',
+    'Send Fegeh Logistics the goods, the collection and delivery points and the dates, and operations will return written pricing for freight, storage or delivery.',
   path: '/quote',
 });
 

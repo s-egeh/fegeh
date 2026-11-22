@@ -44,7 +44,7 @@ export const TESTIMONIALS: Testimonial[] = [];
  */
 export const PARTNERSHIP_COPY = {
   intro:
-    'Most of the work worth doing in logistics is repeat work: the same goods, on the same routes, for the same customers, week after week. These are the companies 4Jasmine Dr works with.',
+    'Most of the work worth doing in logistics is repeat work: the same goods, on the same routes, for the same customers, week after week. These are the companies Fegeh Logistics works with.',
   development:
     'An ongoing arrangement means capacity is planned around your programme rather than sold consignment by consignment — vehicles and storage space set aside against your expected volume, and a rate agreed in advance.',
   compliance:

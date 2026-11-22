@@ -64,7 +64,7 @@ export default function HomePage() {
       {/* 5 — Cargo we carry (paper) */}
       <CargoTypes />
 
-      {/* 6 — Why 4Jasmine Dr (dark) */}
+      {/* 6 — Why Fegeh Logistics (dark) */}
       <WhyUs />
 
       {/* 7 — How a job runs (dark) */}

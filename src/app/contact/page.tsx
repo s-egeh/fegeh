@@ -15,7 +15,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Contact us',
   description:
-    'Contact the 4Jasmine Dr operations team in the Free Zone Enclave, Tema, about road freight, warehousing, distribution or an import or export shipment.',
+    'Contact the Fegeh Logistics operations team in the Free Zone Enclave, Tema, about road freight, warehousing, distribution or an import or export shipment.',
   path: '/contact',
 });
 

@@ -5,8 +5,8 @@
  *                                 [--credit "…"] [--licence "…"] [--focus top|bottom|left|right]
  *
  *   node scripts/ingest-image.mjs ./client-photos/IMG_0412.jpg hero/hero-highway-truck \
- *     --alt "A loaded 4Jasmine Dr truck on the Accra–Tema motorway at dawn" \
- *     --credit "4Jasmine Dr" --licence "Supplied by the client"
+ *     --alt "A loaded Fegeh Logistics truck on the Accra–Tema motorway at dawn" \
+ *     --credit "Fegeh Logistics" --licence "Supplied by the client"
  *
  * `source` may be a local path or an http(s) URL.
  * `slot` is the destination path under /public/images, without extension.

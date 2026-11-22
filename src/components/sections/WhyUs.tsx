@@ -51,7 +51,7 @@ export function WhyUs() {
 
           {/*
             A pull quote attributed to the previous company's profile sat here.
-            It returns only with a quote 4Jasmine Dr has approved and can
+            It returns only with a quote Fegeh Logistics has approved and can
             attribute; until then the column closes on a route into the detail.
           */}
           <Reveal delay={160} className="mt-10 block">

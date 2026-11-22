@@ -32,7 +32,7 @@ export function HeroSlider() {
   return (
     <section
       aria-roledescription="carousel"
-      aria-label="4Jasmine Dr services"
+      aria-label="Fegeh Logistics services"
       className="clip-x relative isolate h-[100svh] max-h-[900px] min-h-[640px] w-full bg-ink-900"
     >
       <Swiper

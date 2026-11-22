@@ -27,7 +27,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Clients and partners',
   description:
-    'The companies 4Jasmine Dr moves, stores and distributes goods for from the Free Zone Enclave in Tema, and what an ongoing logistics arrangement involves.',
+    'The companies Fegeh Logistics moves, stores and distributes goods for from the Free Zone Enclave in Tema, and what an ongoing logistics arrangement involves.',
   path: '/clients',
   noindex: !CLIENTS_PUBLISHED,
 });

@@ -7,7 +7,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Privacy policy',
   description:
-    'How 4Jasmine Dr collects, uses and stores the information you send through the contact and quote forms on this website, and how to have it deleted.',
+    'How Fegeh Logistics collects, uses and stores the information you send through the contact and quote forms on this website, and how to have it deleted.',
   path: '/privacy',
 });
 

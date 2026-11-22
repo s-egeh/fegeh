@@ -9,7 +9,8 @@ interface SwooshRuleProps {
 }
 
 /*
- * Signature element 2 — the swoosh rule.
+ * Signature element 2 — the swoosh rule. It echoes the gold swoosh that arcs
+ * around the FL monogram in the Fegeh Logistics logo.
  *
  * Redrawn: the first version drew two separate paths that met at an angle, and
  * with square linecaps and independent dash animations they read as a stray
@@ -19,8 +20,9 @@ interface SwooshRuleProps {
  * drawn twice: gold over the first 28px, the deeper --gold-d over the
  * remainder, both with round caps and joins so the segments touch with no seam.
  * They animate as a single gesture: the gold leads, the darker gold follows it
- * out of the bend. The 4Jasmine Dr palette has no second accent, so the two
- * steps are both gold; --gold-d holds at least 3.4:1 on bone and on ink.
+ * out of the bend. The logo's swoosh is gold and the logo carries no red, so
+ * the palette has no second accent and the two steps are both gold; --gold-d
+ * holds 3.02:1 on bone and 4.03:1 on ink, clear of the 3:1 non-text minimum.
  */
 
 // Path length, measured off the geometry below. Used for the dash animation so

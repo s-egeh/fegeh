@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#0E2C4E',
+  themeColor: '#112C6E',
   width: 'device-width',
   initialScale: 1,
   // Lets the page paint into the iOS safe areas; every fixed element that could

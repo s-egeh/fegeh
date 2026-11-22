@@ -6,8 +6,8 @@ thing in this file.
 
 ## Temporary stock photography
 
-Every row dated 2026-11-08 is a **temporary stock image**, standing in until 4Jasmine Dr supplies its
-own photographs. None of them shows 4Jasmine Dr's vehicles, premises or people, and their alt text
+Every row dated 2026-11-08 is a **temporary stock image**, standing in until Fegeh Logistics supplies its
+own photographs. None of them shows Fegeh Logistics' vehicles, premises or people, and their alt text
 says only what is in the picture. HANDOVER.md section 4 explains what to undo when the client's
 photographs land: replace the file, rewrite its alt text, and delete its row here.
 
@@ -25,7 +25,7 @@ found, keep their branded placeholder:
 - `images/gallery/gallery-pallet-loading.jpg` — the only suitable public-domain photograph went to the vehicle-loading hero instead, which is more prominent
 - `images/gallery/gallery-goods-receiving.jpg` — no public-domain photograph of goods arriving at a warehouse dock
 - `images/gallery/gallery-pallet-put-away.jpg` — no public-domain photograph of a forklift working inside a warehouse that did not carry another company's name or phone number
-- `images/gallery/gallery-head-office.jpg` — left empty on purpose: it is the /contact hero, beside the company's address, so any office building there would read as 4Jasmine Dr's premises
+- `images/gallery/gallery-head-office.jpg` — left empty on purpose: it is the /contact hero, beside the company's address, so any office building there would read as Fegeh Logistics' premises
 
 ## Credits
 

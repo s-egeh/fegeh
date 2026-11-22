@@ -19,7 +19,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Safety, compliance and documentation',
   description:
-    'How 4Jasmine Dr handles safety in the warehouse and on the road, vehicle compliance, import and export documentation, and the records clients receive.',
+    'How Fegeh Logistics handles safety in the warehouse and on the road, vehicle compliance, import and export documentation, and the records clients receive.',
   path: '/safety-compliance',
 });
 

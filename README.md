@@ -1,6 +1,6 @@
-# 4Jasmine Dr
+# Fegeh Logistics
 
-Corporate website for 4Jasmine Dr — logistics and distribution from the Free Zone Enclave, Tema,
+Corporate website for Fegeh Logistics — logistics and distribution from the Free Zone Enclave, Tema,
 Ghana: road freight and haulage, warehousing and storage, scheduled and last-mile distribution, and
 freight forwarding.
 
@@ -55,10 +55,10 @@ to a default or switches its feature off.
 
 | Variable | Purpose | If unset |
 |---|---|---|
-| `SITE_URL` / `NEXT_PUBLIC_SITE_URL` | Canonical origin, used by metadata, structured data and the sitemap | Falls back to `https://4jasminedrive.com` |
+| `SITE_URL` / `NEXT_PUBLIC_SITE_URL` | Canonical origin, used by metadata, structured data and the sitemap | Falls back to `https://fegehlogistics.com` |
 | `NEXT_PUBLIC_WHATSAPP` | WhatsApp number in international format, digits only | Falls back to `COMPANY.whatsapp` in `company.ts` |
 | `RESEND_API_KEY` | Resend API key | The contact API returns 500 and the form shows the phone number and email instead |
-| `CONTACT_FROM_EMAIL` | Sending address, on a domain verified in Resend. A bare address is given the display name "4Jasmine Dr website". | As above |
+| `CONTACT_FROM_EMAIL` | Sending address, on a domain verified in Resend. A bare address is given the display name "Fegeh Logistics website". | As above |
 | `CONTACT_TO_EMAIL` | Where enquiries are delivered | Falls back to `COMPANY.email` |
 | `NEXT_PUBLIC_GA_ID` | Google Analytics measurement ID | No analytics and no cookie notice |
 | `NEXT_PUBLIC_FORM_ENDPOINT` | Third-party form endpoint, for the static-export target | Forms fall back to `mailto:` |
@@ -71,7 +71,7 @@ to a default or switches its feature off.
 `SITE_URL` and `NEXT_PUBLIC_SITE_URL` **must be set to the same value** in the host's environment,
 and that value must be the host that actually serves the site.
 
-Pick one of `https://4jasminedrive.com` and `https://www.4jasminedrive.com`, make the other
+Pick one of `https://fegehlogistics.com` and `https://www.fegehlogistics.com`, make the other
 redirect to it, and use the one that serves. If the apex and www disagree — the variables naming
 one while the host serves the other — every canonical tag, every sitemap URL, the `robots.txt` Host
 line and every share card point at a redirect. The code defaults to the apex in two places that must
@@ -154,20 +154,23 @@ in `docs/image-credits.md`.
 
 ## Brand assets
 
-The client's logo source is `assets/brand/4jasmine-logo-source.jpg`, outside `public/` so it is
-never served. `npm run build:brand` regenerates every derivative:
+The client's logo source is `assets/brand/fegeh-logo-source.png`, a transparent PNG kept outside
+`public/` so it is never served. `npm run build:brand` regenerates every derivative:
 
-- `scripts/build-logo-variants.mjs` lifts the artwork off its off-white ground with a known-colour
-  matte, then writes the navy and white stacked lockups, the header wordmark, the light and
-  dark-surface marks, the PWA icons, `src/app/icon.png`, `src/app/apple-icon.png` and a multi-size
-  `src/app/favicon.ico`.
+- `scripts/build-logo-variants.mjs` normalises the source's alpha, finds the FL mark, the divider
+  bar and the wordmark block by scanning for empty columns, and checks each against its measured
+  position and ink — stopping if the artwork has moved or changed colour. It then writes the full
+  horizontal lockup as supplied and with "FEGEH" in white, the white wordmark block for the header,
+  the light and dark-surface marks, the PWA icons, `src/app/icon.png`, `src/app/apple-icon.png` and
+  a multi-size `src/app/favicon.ico`.
 - `scripts/build-og-image.mjs` renders the 1200×630 share card in Chrome (through Playwright, using
   the installed Google Chrome) so the tagline is set in Archivo. It reads the tagline from
   `src/data/company.ts`, and stops rather than ship a card in a fallback font if Archivo does not
   load.
 
 `src/components/layout/Logo.tsx` is the only place a logo variant is chosen. The header is always
-dark, so it uses the mark beside the white wordmark; the footer uses the white stacked lockup.
+dark, so it uses the mark beside the white wordmark block; the footer uses the full lockup with
+"FEGEH" in white.
 
 A vector master of the logo is still outstanding — see `HANDOVER.md`.
 
@@ -245,9 +248,10 @@ when it is published.
 
 ## Notes for anyone editing this codebase
 
-**Colour.** Tokens live in `src/styles/globals.css` and are taken from the logo. Gold is the only
-accent: emphasis is gold, solid fills are ink. Use `text-gold-ink` for gold text on light surfaces —
-plain `gold` is decorative there (2.28:1 on bone). `danger` exists for form validation only.
+**Colour.** Tokens live in `src/styles/globals.css` and are measured from the logo: navy `#112C6E`
+and gold `#FDC007`. Gold is the only accent: emphasis is gold, solid fills are ink. Use
+`text-gold-ink` for gold text on light surfaces — plain `gold` is decorative there (1.54:1 on
+bone). `danger` exists for form validation only.
 
 **Colour with opacity.** Tailwind cannot apply an opacity modifier to a colour whose value is a
 plain `var(--x)` holding a hex — it needs bare channels. The ink scale is therefore built from

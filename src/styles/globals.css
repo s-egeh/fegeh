@@ -10,13 +10,15 @@
 @layer base {
   :root {
     /*
-     * Colour — taken from the 4Jasmine Dr logo: the navy of the wordmark, the
-     * gold of the truck, the grey of the leaf and the off-white of the ground.
+     * Colour — measured from the Fegeh Logistics logo: the navy of the "FEGEH"
+     * wordmark and the gold of the FL monogram, its swoosh, the divider bar and
+     * "LOGISTICS". The rest of the ink scale is derived from that navy; bone,
+     * paper and the slates are neutrals the logo does not dictate.
      */
-    --ink-900: #0e2c4e; /* logo navy */
-    --ink-800: #153a63;
-    --ink-700: #204c7d;
-    --ink-500: #4a709b;
+    --ink-900: #112c6e; /* logo navy */
+    --ink-800: #1c397f;
+    --ink-700: #2c4a93;
+    --ink-500: #5973b2;
 
     /*
      * The ink scale again, as bare RGB channels.
@@ -33,38 +35,42 @@
      * modifiers work. The hex variables above are kept because plain CSS in
      * this file and a few inline styles reference them directly.
      */
-    --ink-900-rgb: 14 44 78; /* #0E2C4E  logo navy */
-    --ink-800-rgb: 21 58 99; /* #153A63 */
-    --ink-700-rgb: 32 76 125; /* #204C7D */
-    --ink-500-rgb: 74 112 155; /* #4A709B */
+    --ink-900-rgb: 17 44 110; /* #112C6E  logo navy */
+    --ink-800-rgb: 28 57 127; /* #1C397F */
+    --ink-700-rgb: 44 74 147; /* #2C4A93 */
+    --ink-500-rgb: 89 115 178; /* #5973B2 */
 
     /*
+     * White on --ink-900 is 13.05:1 and bone on --ink-900 12.16:1 (AAA);
+     * --ink-900 on bone is the same 12.16:1.
+     *
      * Gold is the one accent. The logo carries no red, so there is no second
      * accent colour: emphasis is gold, and solid fills are ink.
      *
-     * --gold on --ink-900 is 5.77:1 and carries text on dark surfaces. On light
-     * surfaces it is 2.28:1 on bone and 2.45:1 on paper — decorative only (rules,
-     * aria-hidden icons, underlines), never type.
+     * --gold on --ink-900 is 7.90:1 (AAA) and carries text on dark surfaces. On
+     * light surfaces it is 1.54:1 on bone — decorative only (rules, aria-hidden
+     * icons, underlines), never type.
      */
-    --gold: #cb9f46; /* logo truck gold */
-    --gold-d: #a87f2e;
+    --gold: #fdc007; /* logo gold */
+    /* 3.02:1 on bone: fills and hover states, not type. */
+    --gold-d: #b58801;
     /*
-     * Gold for TEXT on light surfaces: 5.93:1 on bone, 6.36:1 on paper, so it
+     * Gold for TEXT on light surfaces: 5.05:1 on bone, 5.42:1 on white, so it
      * clears WCAG AA at the small sizes the eyebrow and mono label styles use.
-     * --gold-d (3.41:1 on bone) is not a text colour.
+     * Neither --gold nor --gold-d is a text colour on a light surface.
      */
-    --gold-ink: #7a5a14;
+    --gold-ink: #866501;
 
-    --bone: #f7f7f4; /* logo ground */
+    --bone: #f7f7f4;
     --paper: #ffffff;
-    --slate-600: #686c6f; /* logo leaf grey — 4.94:1 on bone, 5.30:1 on paper */
+    --slate-600: #686c6f; /* 4.94:1 on bone, 5.30:1 on paper */
     /*
-     * Muted text on dark surfaces. The logo-derived value, #9AA0A4, measures
-     * 4.37:1 on --ink-800 (the CTA band and image placeholders) and fails AA.
-     * Lifted six steps per channel — not visible as a change of colour — to
-     * 4.69:1 on ink-800 and 5.73:1 on ink-900.
+     * Muted text on dark surfaces. At its previous value, #A0A6AA, it measures
+     * 4.39:1 against the new --ink-800 (the CTA band and image placeholders)
+     * and fails AA. Lifted five steps per channel — not visible as a change of
+     * colour — to 4.66:1 on ink-800 and 5.62:1 on ink-900.
      */
-    --slate-400: #a0a6aa;
+    --slate-400: #a5abaf;
 
     /*
      * Form validation only — error text, invalid-field borders and the failure
@@ -220,7 +226,7 @@
    * Focus ring — never removed without a replacement.
    *
    * Two-tone, because no single colour clears the 3:1 non-text minimum on both
-   * surfaces this site uses: gold is 5.77:1 against ink but 2.28:1 against
+   * surfaces this site uses: gold is 7.90:1 against ink but 1.54:1 against
    * bone, and ink is the reverse. An ink ring sits tight to the element and a
    * gold outline sits outside it, so one of the two is always clearly visible.
    */

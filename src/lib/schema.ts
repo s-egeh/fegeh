@@ -13,15 +13,17 @@ const headOffice = COMPANY.addresses[0];
  * where the page itself shows the same value pending confirmation. Flip a flag
  * to true once the value in src/data/company.ts is confirmed.
  *
- * [TODO-CLIENT] email (assumed from the domain), legalName (registered name not
- * confirmed), hours (the defaults are a placeholder).
+ * legalName is confirmed by the client as Fegeh Logistics.
+ *
+ * [TODO-CLIENT] email (info@fegehlogistics.com is assumed from the domain and
+ * no mailbox exists for it yet), hours (the defaults are a placeholder).
  *
  * There is deliberately no `geo` property: no coordinates have been supplied
  * for the premises, and the centre of Tema is not the location of the business.
  */
 const CONFIRMED = {
   email: false,
-  legalName: false,
+  legalName: true,
   hours: false,
 };
 
@@ -67,7 +69,7 @@ export function organizationSchema() {
     ...(CONFIRMED.legalName ? { legalName: COMPANY.legalName } : {}),
     description: COMPANY.tagline,
     url: absoluteUrl('/'),
-    logo: absoluteUrl('/brand/4jasmine-logo-full.png'),
+    logo: absoluteUrl('/brand/fegeh-logo-full.png'),
     image: absoluteUrl('/brand/og-image.jpg'),
     ...(CONFIRMED.email ? { email: COMPANY.email } : {}),
     telephone: COMPANY.phones.map((phone) => phone.tel),

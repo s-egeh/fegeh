@@ -1,8 +1,8 @@
 {
-  "name": "4jasmine-dr-website",
+  "name": "fegeh-logistics-website",
   "version": "1.0.0",
   "private": true,
-  "description": "Corporate website for 4Jasmine Dr — logistics and distribution, Free Zone Enclave, Tema, Ghana.",
+  "description": "Corporate website for Fegeh Logistics — logistics and distribution, Free Zone Enclave, Tema, Ghana.",
   "scripts": {
     "predev": "node scripts/build-image-manifest.mjs",
     "dev": "next dev",

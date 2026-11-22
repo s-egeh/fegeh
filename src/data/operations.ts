@@ -57,7 +57,7 @@ export const CARGO_TYPES: { title: string; description: string; icon: LucideIcon
 ];
 
 /* ------------------------------------------------------------------ *
- * How a job runs — homepage, dark band after "Why 4Jasmine Dr".
+ * How a job runs — homepage, dark band after "Why Fegeh Logistics".
  * Five steps, which is why PROCESS_STEPS (four, used on /services) is kept
  * separate rather than reconciled: they answer different questions.
  * ------------------------------------------------------------------ */
@@ -202,7 +202,7 @@ export const MAINTENANCE_BLOCKS: { title: string; description: string }[] = [
  * ------------------------------------------------------------------ */
 
 export const DRIVERS_COPY =
-  'The people driving the vehicles and handing over the goods are the part of 4Jasmine Dr your customers actually meet. How they drive, how they handle the goods and how they deal with the person signing for a delivery is held to the same standard as everything else.';
+  'The people driving the vehicles and handing over the goods are the part of Fegeh Logistics your customers actually meet. How they drive, how they handle the goods and how they deal with the person signing for a delivery is held to the same standard as everything else.';
 
 export const DRIVER_POINTS: { title: string; description: string }[] = [
   {

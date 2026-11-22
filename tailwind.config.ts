@@ -1,8 +1,8 @@
 import type { Config } from 'tailwindcss';
 
 /**
- * 4Jasmine Dr design system. Colour values live in src/styles/globals.css and
- * are taken from the client's logo.
+ * Fegeh Logistics design system. Colour values live in src/styles/globals.css
+ * and are measured from the client's logo: navy #112C6E and gold #FDC007.
  * The default Tailwind palette is switched off entirely: `colors` is replaced,
  * not extended, so no default blue/indigo can leak into the build.
  */
@@ -27,9 +27,10 @@ const config: Config = {
         500: 'rgb(var(--ink-500-rgb) / <alpha-value>)',
       },
       /*
-       * No crimson: the 4Jasmine Dr logo has no red in it. Emphasis is gold,
-       * solid fills are ink. `danger` is not a brand colour — it exists only
-       * for form validation (see --danger in globals.css).
+       * No crimson: the Fegeh Logistics logo is navy and gold only, with no
+       * red in it. Emphasis is gold, solid fills are ink. `danger` is not a
+       * brand colour — it exists only for form validation (see --danger in
+       * globals.css).
        */
       gold: {
         DEFAULT: 'var(--gold)',
@@ -60,7 +61,7 @@ const config: Config = {
     boxShadow: {
       none: 'none',
       // The single elevation token permitted by the design system (5.3).
-      elevate: '0 24px 60px -32px rgba(14, 44, 78, 0.35)',
+      elevate: '0 24px 60px -32px rgba(17, 44, 110, 0.35)',
       // The mega-menu is the one surface that overhangs the page rather than
       // sitting in it, so it gets a deeper, darker cast than `elevate`.
       mega: '0 32px 64px -32px rgba(0, 0, 0, 0.6)',

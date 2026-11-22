@@ -36,7 +36,7 @@ export interface TeamMember {
  *     role: 'Role title',
  *     initials: 'FL',
  *     photo: '/images/team/team-firstname-lastname.jpg',
- *     photoAlt: 'Portrait of Full Name, Role title at 4Jasmine Dr',
+ *     photoAlt: 'Portrait of Full Name, Role title at Fegeh Logistics',
  *     summary: 'One line on what they own.',
  *     bio: ['Paragraph one.', 'Paragraph two.'],
  *     credentials: ['Qualification, Institution'],

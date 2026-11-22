@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Logo } from './Logo';
 
-const SESSION_KEY = '4jasmine:preloaded';
+const SESSION_KEY = 'fegeh:preloaded';
 
 /**
  * Logo mark plus a gold wipe from the left, 700ms, once per session.

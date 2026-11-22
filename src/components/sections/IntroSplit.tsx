@@ -83,7 +83,7 @@ export function IntroSplit() {
           {/*
             No figures. The stat row that sat here carried the previous
             company's numbers; no truck count, client count, tonnage or years in
-            business has been supplied for 4Jasmine Dr, and none is invented.
+            business has been supplied for Fegeh Logistics, and none is invented.
             The Stat component is still in the codebase for when one is.
           */}
         </div>

@@ -22,9 +22,9 @@ const BASE =
   'group/btn relative inline-flex items-center justify-center gap-[10px] overflow-hidden rounded-none font-mono font-medium uppercase tracking-[0.1em] leading-none transition-[color,background-color,border-color,opacity] duration-fast ease-out-expo disabled:cursor-not-allowed';
 
 /*
- * Primary is gold with an ink label (5.77:1). Its hover fills ink from the
- * bottom with a white label (14.1:1) — the darker gold step would put the ink
- * label at 3.86:1, under AA. The gold border stays visible through the hover,
+ * Primary is gold with an ink label (7.90:1). Its hover fills ink from the
+ * bottom with a white label (13.05:1) — the darker gold step would put the ink
+ * label at 4.03:1, under AA. The gold border stays visible through the hover,
  * so the button keeps its edge on the ink hero and CTA band, where an ink fill
  * would otherwise vanish into the background.
  */

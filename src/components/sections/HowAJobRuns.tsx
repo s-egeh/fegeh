@@ -4,7 +4,7 @@ import { JOB_STEPS } from '@/data/operations';
 
 /**
  * How a job runs — the sequence from enquiry to proof of delivery. Dark band,
- * placed straight after Why 4Jasmine Dr: the previous section argues that one
+ * placed straight after Why Fegeh Logistics: the previous section argues that one
  * structure means fewer handoffs, and this one shows the handoffs.
  */
 export function HowAJobRuns() {

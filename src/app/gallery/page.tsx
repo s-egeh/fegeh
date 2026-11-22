@@ -10,7 +10,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Gallery',
   description:
-    'Photographs of 4Jasmine Dr vehicles, the warehouse in the Free Zone Enclave, distribution runs, port collections and the team behind them in Tema, Ghana.',
+    'Photographs of Fegeh Logistics vehicles, the warehouse in the Free Zone Enclave, distribution runs, port collections and the team behind them in Tema, Ghana.',
   path: '/gallery',
   // Unlinked and unindexed until there are real photographs to show.
   noindex: !GALLERY_PUBLISHED,

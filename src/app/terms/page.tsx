@@ -7,7 +7,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Terms of use',
   description:
-    'The terms governing use of the 4Jasmine Dr website. These are website terms only, separate from the commercial terms of any freight or storage agreement.',
+    'The terms governing use of the Fegeh Logistics website. These are website terms only, separate from the commercial terms of any freight or storage agreement.',
   path: '/terms',
 });
 

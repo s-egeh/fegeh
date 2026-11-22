@@ -99,7 +99,7 @@ const MIN_DRAWN_LENGTH = 24;
 const MAP_PLACES = Object.entries(PLACES).filter(([, place]) => place.onMap !== false);
 
 /** The accessible name, built from the data so it cannot drift from the list. */
-const MAP_LABEL = `Map of Ghana showing 4Jasmine Dr distribution corridors from ${
+const MAP_LABEL = `Map of Ghana showing Fegeh Logistics distribution corridors from ${
   PLACES.tema.label
 } to ${CORRIDORS.filter((corridor) => corridor.from === 'tema')
   .map((corridor) => PLACES[corridor.to].label)

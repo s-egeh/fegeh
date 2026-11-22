@@ -3,7 +3,7 @@
  * SITE_URL / NEXT_PUBLIC_SITE_URL must be set to the same value on the host.
  * See README, "Canonical URL".
  */
-const DEFAULT_SITE_URL = 'https://4jasminedrive.com';
+const DEFAULT_SITE_URL = 'https://fegehlogistics.com';
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
