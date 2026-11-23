@@ -17,13 +17,13 @@ delete rows as they close. Every item is also marked `[TODO-CLIENT]` in the sour
 
 | # | Item | Where to change it |
 |---|---|---|
-| 1 | **A working mailbox for `info@fegehlogistics.com`, or a different address.** The address was assumed from the new domain; it was not supplied and no mailbox exists for it yet. It appears on every page and receives the contact and quote forms, so until the mailbox exists every enquiry sent to it is lost. It is held out of the structured data until confirmed. | `COMPANY.email` in `src/data/company.ts`; `CONTACT_TO_EMAIL` in the host env; then `CONFIRMED.email` in `src/lib/schema.ts` |
+| 1 | **Check the spelling of the public email address.** `fegehlogistic2022@gmail.com` — "logistic", no "s", then 2022 — was supplied in a message and is used exactly as written. It appears on every page, receives every form enquiry and is now in the structured data, so one wrong letter loses every enquiry. Send a test from `/contact` once mail delivery (item 7) is set up. | `COMPANY.email` in `src/data/company.ts`; `CONTACT_TO_EMAIL` in the host env |
 | 2 | **Canonical host — apex or www on fegehlogistics.com, the other redirected.** The code defaults to `https://fegehlogistics.com` (the apex). Decide which host serves the site, redirect the other one to it, and **set `SITE_URL` and `NEXT_PUBLIC_SITE_URL` on the host to that same value.** If the two variables disagree, or name a host that redirects, every canonical, sitemap URL, `robots.txt` Host line and share-card URL points at a redirect — the mistake that affected the site this codebase came from. If www is chosen, also change the default in both files listed here so a missing variable cannot fall back to the wrong host. | Host env; `DEFAULT_SITE_URL` in `src/lib/utils.ts` and `next-sitemap.config.js` |
 | 3 | **Business hours.** The hours shown are placeholders, and are held out of the structured data because of it. | `COMPANY.hours` in `src/data/company.ts`; then `CONFIRMED.hours` in `src/lib/schema.ts` |
 | 4 | **A vector master of the logo (SVG, AI or PDF).** The supplied PNG is adequate at current sizes — every output is a downscale — but it is raster, so large-format print and any future upscale are limited by it. See section 4. | Export a large transparent PNG to `assets/brand/fegeh-logo-source.png` and run `npm run build:brand` |
 | 5 | **Photography.** Every image under `public/images/` is temporary stock standing in for the client's own, as recorded in `docs/image-credits.md`. See section 4. | `public/images/`; alt text in `src/data`; `docs/image-credits.md` |
 | 6 | **The four client sectors.** Bel Aqua (Beverages), Wilmar (Agribusiness), Guinness (Brewing) and Olam (Agribusiness) were inferred, not supplied, and each shows under its name on `/clients`. Confirm or correct them. The client holds permission to name the four; their logos stay off the site unless each company supplies the file together with permission to use it. | `CLIENTS` in `src/data/clients.ts` |
-| 7 | **Mail delivery.** Create a Resend account, verify the sending domain, and set `RESEND_API_KEY`, `CONTACT_FROM_EMAIL` and `CONTACT_TO_EMAIL`. Then send one test from each of the three forms. See section 6. | Host env |
+| 7 | **Mail delivery.** Enquiries are delivered to the Gmail address, but Resend cannot send *from* Gmail: the sender must be on a domain verified in Resend. Create a Resend account, verify `fegehlogistics.com`, and set `RESEND_API_KEY`, `CONTACT_FROM_EMAIL` (for example `website@fegehlogistics.com`) and `CONTACT_TO_EMAIL` (`fegehlogistic2022@gmail.com`). Then send one test from each of the three forms. See section 6. | Host env |
 | 8 | **Service set sign-off.** The four services — Freight & Haulage, Warehousing & Storage, Distribution, Freight Forwarding — and their slugs were proposed, not supplied. Confirm the set, the names, every capability, and both columns of every "what's included / what isn't" block. | `src/data/services.ts` |
 | 9 | **Customs and forwarding position.** The freight-forwarding page describes coordination and documentation *support* only, and lists customs declarations as a licensed broker under "not included". Confirm whether Fegeh Logistics holds a customs broker licence, works through a partner, or neither, before the page is published. | `src/data/services.ts`, `src/data/faq.ts` |
 | 10 | **Copy review.** All marketing copy is drafted, not supplied. Every block marked `[TODO-CLIENT: review wording]` must be read and approved, or replaced, by the client: vision, mission, governance, company overview, core values, the "why us" points, the hero slides, the FAQ, safety and compliance, the fleet page and coverage. | See the files listed in section 3 |
@@ -36,11 +36,12 @@ delete rows as they close. Every item is also marked `[TODO-CLIENT]` in the sour
 Numbered in the order they matter for launch.
 
 Confirmed and no longer listed: the legal name; both phone numbers (operations `024 454 6668`,
-managing proprietor `025 611 3380`) and the WhatsApp line (the operations number); the head office
-address and its Ghana Post GPS code; the business registration; that the 27 vehicles are owned
-rather than hired in; and permission to name four clients.
+managing proprietor `025 611 3380`) and the WhatsApp line (the operations number); the email
+address; the head office address, its Ghana Post GPS code and the P.O. Box; the business
+registration and TIN; that the 27 vehicles are owned rather than hired in; and permission to name
+four clients.
 
-1. Email address(es): a working mailbox for the public address, and where form enquiries should be delivered.
+1. Confirmation that `fegehlogistic2022@gmail.com` is spelled as intended, and whether form enquiries should also go anywhere else.
 2. Business hours (the current hours are a placeholder default).
 3. Landmark directions to the premises in Emmanuel Estate, Mateheko, Afienya — the junction to turn at, the gate, a neighbouring business. The Ghana Post GPS code is published, but the Google Maps pin marks the estate's first junction, a place created by Google users, not the door. A Google Business Profile at the premises would give the map a pin of its own.
 4. Social media accounts, if any.
@@ -102,16 +103,18 @@ Where each one goes:
 |---|---|---|
 | Registered name | Fegeh Logistics — a business name under the Registration of Business Names Act, 1962 (Act 151) | Yes — `GOVERNANCE` in `src/data/company.ts` |
 | Registration date | 15 April 2022 | Yes — `GOVERNANCE` |
-| Registration number | BN452260422 | Yes — `GOVERNANCE`, so the registration can be checked |
-| Taxpayer Identification Number | Supplied by the client; held in the client's records, not in this repository | **No, deliberately** |
-| Ghana Post GPS | GN-1103-1168 | Yes — `/contact` |
+| Registration number | BN452260422 | Yes — `GOVERNANCE`, so the registration can be checked, and the footer |
+| Taxpayer Identification Number | GHA-002363000-2 | Yes — the footer, highlighted, at the client's explicit request. Not in the structured data |
+| Ghana Post GPS | GN-1103-1168 | Yes — `/contact` and the footer |
+| Postal address | P.O. Box AS 213, Ashaiman | Yes — the footer. Not in the structured data, whose locality is Afienya |
+| Email | fegehlogistic2022@gmail.com | Yes — every page; also in the structured data |
 
-**The TIN is kept off the website on purpose.** It belongs on invoices, contracts and filings. A
-public page gains nothing from it, and a registration number and TIN published side by side are
-exactly what invoice-redirection fraud uses to look convincing. It is not written in this file
-either, because this repository is public on GitHub and anything committed here is published. If
-the client wants the TIN on the site, that is their decision — but they should ask for it
-explicitly.
+**The TIN is published because the client asked for it.** It was first kept off the site, on the
+advice that a TIN belongs on invoices, contracts and filings, and that a registration number and
+TIN published side by side are what invoice-redirection fraud uses to look convincing. On
+23 November 2026 the client explicitly asked for both in the footer, with the TIN highlighted.
+That is their decision; it is recorded here so it reads as one, not as an oversight. To take it
+down, delete the TIN row from the footer in `src/components/layout/Footer.tsx`.
 
 ---
 

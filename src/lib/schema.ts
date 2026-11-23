@@ -13,17 +13,21 @@ const headOffice = COMPANY.addresses[0];
  * where the page itself shows the same value pending confirmation. Flip a flag
  * to true once the value in src/data/company.ts is confirmed.
  *
- * legalName is confirmed by the client as Fegeh Logistics.
+ * legalName and email are confirmed by the client.
  *
- * [TODO-CLIENT] email (info@fegehlogistics.com is assumed from the domain and
- * no mailbox exists for it yet), hours (the defaults are a placeholder).
+ * [TODO-CLIENT] hours (the defaults are a placeholder).
+ *
+ * The TIN and the P.O. Box are deliberately not emitted: the TIN is shown in
+ * the footer at the client's request but is not repeated to search engines,
+ * and the P.O. Box is in Ashaiman, which would contradict the Afienya locality
+ * of the PostalAddress below.
  *
  * There is deliberately no `geo` property: no coordinates have been supplied
  * for the premises, and neither the centre of Afienya nor the estate pin Google
  * resolves is the location of the business.
  */
 const CONFIRMED = {
-  email: false,
+  email: true,
   legalName: true,
   hours: false,
 };

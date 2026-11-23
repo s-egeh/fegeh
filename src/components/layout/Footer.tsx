@@ -57,6 +57,71 @@ export function Footer() {
 
           <p className="max-w-[34ch] t-small text-slate-400">{COMPANY.tagline}</p>
 
+          {/*
+            Business details, in the order the client set out: TIN (highlighted,
+            at the client's request), registration number, address, phones,
+            email. They live here rather than under "Get in touch" so nothing is
+            listed twice.
+          */}
+          <div className="flex flex-col gap-4">
+            <dl className="flex flex-col items-start gap-2">
+              <div>
+                <dt className="sr-only">Taxpayer Identification Number</dt>
+                {/* Ink on gold, 7.90:1. */}
+                <dd className="u-mono bg-gold px-2 py-1 text-[11px] text-ink-900">
+                  TIN: {COMPANY.tin}
+                </dd>
+              </div>
+              <div>
+                <dt className="sr-only">Business registration number</dt>
+                <dd className="u-mono text-[11px] text-slate-400">
+                  Reg No: {COMPANY.registrationNumber}
+                </dd>
+              </div>
+            </dl>
+
+            <ul aria-label="Contact details" className="flex flex-col gap-4">
+              {ACTIVE_ADDRESSES.map((address) => (
+                <li key={address.label} className="flex gap-3 t-small text-slate-400">
+                  <MapPin aria-hidden="true" strokeWidth={1.5} className="mt-1 h-4 w-4 shrink-0 text-gold" />
+                  <address className="not-italic">
+                    <span className="u-mono text-[11px]">{COMPANY.digitalAddress}</span>
+                    <br />
+                    {address.lines.join(', ')}, {address.locality}
+                    <br />
+                    {COMPANY.poBox}
+                  </address>
+                </li>
+              ))}
+
+              {COMPANY.phones.map((phone) => (
+                <li key={phone.tel}>
+                  <a
+                    href={`tel:${phone.tel}`}
+                    className="flex min-h-11 items-center gap-3 t-small text-slate-400 transition-colors duration-fast hover:text-white lg:min-h-0"
+                  >
+                    <Phone aria-hidden="true" strokeWidth={1.5} className="h-4 w-4 shrink-0 text-gold" />
+                    {/* Labelled: there are two numbers, reaching different people. */}
+                    <span className="flex flex-col gap-1">
+                      <span className="u-mono text-[12px] leading-none">{phone.display}</span>
+                      <span className="u-mono text-[10px] leading-none text-slate-400">{phone.label}</span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+
+              <li>
+                <a
+                  href={`mailto:${COMPANY.email}`}
+                  className="flex min-h-11 items-center gap-3 break-all t-small text-slate-400 transition-colors duration-fast hover:text-white lg:min-h-0"
+                >
+                  <Mail aria-hidden="true" strokeWidth={1.5} className="h-4 w-4 shrink-0 text-gold" />
+                  {COMPANY.email}
+                </a>
+              </li>
+            </ul>
+          </div>
+
           {socials.length > 0 ? (
             <ul className="flex items-center gap-4">
               {socials.map((social) => {
@@ -111,44 +176,8 @@ export function Footer() {
             Get in touch
           </h2>
 
+          {/* Address, phones and email moved to the first column. */}
           <ul aria-labelledby="footer-contact" className="mt-6 flex flex-col gap-4">
-            {ACTIVE_ADDRESSES.map((address) => (
-              <li key={address.label} className="flex gap-3 t-small text-slate-400">
-                <MapPin aria-hidden="true" strokeWidth={1.5} className="mt-1 h-4 w-4 shrink-0 text-gold" />
-                <address className="not-italic">
-                  {address.lines.join(', ')}
-                  <br />
-                  {address.locality}, {address.region}, {address.country}
-                </address>
-              </li>
-            ))}
-
-            {COMPANY.phones.map((phone) => (
-              <li key={phone.tel}>
-                <a
-                  href={`tel:${phone.tel}`}
-                  className="flex min-h-11 items-center gap-3 t-small text-slate-400 transition-colors duration-fast hover:text-white lg:min-h-0"
-                >
-                  <Phone aria-hidden="true" strokeWidth={1.5} className="h-4 w-4 shrink-0 text-gold" />
-                  {/* Labelled: there are two numbers, reaching different people. */}
-                  <span className="flex flex-col gap-1">
-                    <span className="u-mono text-[12px] leading-none">{phone.display}</span>
-                    <span className="u-mono text-[10px] leading-none text-slate-400">{phone.label}</span>
-                  </span>
-                </a>
-              </li>
-            ))}
-
-            <li>
-              <a
-                href={`mailto:${COMPANY.email}`}
-                className="flex min-h-11 items-center gap-3 t-small text-slate-400 transition-colors duration-fast hover:text-white lg:min-h-0"
-              >
-                <Mail aria-hidden="true" strokeWidth={1.5} className="h-4 w-4 shrink-0 text-gold" />
-                {COMPANY.email}
-              </a>
-            </li>
-
             <li>
               <a
                 href={whatsappHref()}

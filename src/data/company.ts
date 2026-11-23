@@ -57,12 +57,25 @@ export const COMPANY = {
   policiesUpdated: '22 November 2026',
 
   /**
-   * [TODO-CLIENT] Confirm before launch. This address is assumed from the new
-   * domain, fegehlogistics.com — it was not supplied, and no mailbox exists for
-   * it yet. It appears on every page and receives the contact and quote forms,
-   * so the mailbox must be created, or this address changed, before launch.
+   * Supplied by the client (23 November 2026). Note the spelling — "logistic",
+   * no "s", then 2022. It appears on every page and receives the contact and
+   * quote forms, so a typo here loses every enquiry.
    */
-  email: 'info@fegehlogistics.com',
+  email: 'fegehlogistic2022@gmail.com',
+
+  /** Business-name registration number (Act 151). Also stated in GOVERNANCE. */
+  registrationNumber: 'BN452260422',
+
+  /**
+   * Taxpayer Identification Number, shown in the footer at the client's
+   * explicit request (23 November 2026). It was first kept off the site for the
+   * reason recorded in HANDOVER.md, "Business details on record"; publishing it
+   * is the client's decision. Kept out of the structured data.
+   */
+  tin: 'GHA-002363000-2',
+
+  /** Postal address, as supplied. Separate from the street address in Afienya. */
+  poBox: 'P.O. Box AS 213, Ashaiman',
 
   /**
    * Operations first: PRIMARY_PHONE is phones[0], and the header, top bar,
@@ -170,8 +183,7 @@ export const MISSION =
 
 /*
  * The registration number is published so the claim can be checked. The TIN
- * is deliberately NOT published — it is recorded in HANDOVER.md for invoices,
- * contracts and filings only.
+ * is not repeated here; it appears only in the footer, at the client's request.
  */
 export const GOVERNANCE =
   'Fegeh Logistics is a business name registered in Ghana on 15 April 2022 under the Registration of Business Names Act, 1962 (Act 151), registration number BN452260422. The business is committed to running its operations with clear lines of responsibility, honest communication with clients, and compliance with the regulatory requirements that apply to transport, warehousing and trade in Ghana.';
