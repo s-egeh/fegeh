@@ -58,28 +58,12 @@ export function Footer() {
           <p className="max-w-[34ch] t-small text-slate-400">{COMPANY.tagline}</p>
 
           {/*
-            Business details, in the order the client set out: TIN (highlighted,
-            at the client's request), registration number, address, phones,
+            Contact details, in the order the client set out: address, phones,
             email. They live here rather than under "Get in touch" so nothing is
-            listed twice.
+            listed twice. The TIN and registration number that headed this block
+            were removed at the client's request.
           */}
           <div className="flex flex-col gap-4">
-            <dl className="flex flex-col items-start gap-2">
-              <div>
-                <dt className="sr-only">Taxpayer Identification Number</dt>
-                {/* Ink on gold, 7.90:1. */}
-                <dd className="u-mono bg-gold px-2 py-1 text-[11px] text-ink-900">
-                  TIN: {COMPANY.tin}
-                </dd>
-              </div>
-              <div>
-                <dt className="sr-only">Business registration number</dt>
-                <dd className="u-mono text-[11px] text-slate-400">
-                  Reg No: {COMPANY.registrationNumber}
-                </dd>
-              </div>
-            </dl>
-
             <ul aria-label="Contact details" className="flex flex-col gap-4">
               {ACTIVE_ADDRESSES.map((address) => (
                 <li key={address.label} className="flex gap-3 t-small text-slate-400">

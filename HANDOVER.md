@@ -103,18 +103,18 @@ Where each one goes:
 |---|---|---|
 | Registered name | Fegeh Logistics — a business name under the Registration of Business Names Act, 1962 (Act 151) | Yes — `GOVERNANCE` in `src/data/company.ts` |
 | Registration date | 15 April 2022 | Yes — `GOVERNANCE` |
-| Registration number | BN452260422 | Yes — `GOVERNANCE`, so the registration can be checked, and the footer |
-| Taxpayer Identification Number | GHA-002363000-2 | Yes — the footer, highlighted, at the client's explicit request. Not in the structured data |
+| Registration number | BN452260422 | Yes — `GOVERNANCE` on `/about`, so the registration can be checked. Not in the footer |
+| Taxpayer Identification Number | Supplied by the client; held in the client's records, not in this repository | **No** |
 | Ghana Post GPS | GN-1103-1168 | Yes — `/contact` and the footer |
 | Postal address | P.O. Box AS 213, Ashaiman | Yes — the footer. Not in the structured data, whose locality is Afienya |
 | Email | fegehlogistic2022@gmail.com | Yes — every page; also in the structured data |
 
-**The TIN is published because the client asked for it.** It was first kept off the site, on the
-advice that a TIN belongs on invoices, contracts and filings, and that a registration number and
-TIN published side by side are what invoice-redirection fraud uses to look convincing. On
-23 November 2026 the client explicitly asked for both in the footer, with the TIN highlighted.
-That is their decision; it is recorded here so it reads as one, not as an oversight. To take it
-down, delete the TIN row from the footer in `src/components/layout/Footer.tsx`.
+**The TIN is not on the website.** A TIN belongs on invoices, contracts and filings; a public page
+gains nothing from it, and a registration number and TIN published side by side are what
+invoice-redirection fraud uses to look convincing. The client briefly had both in the footer, then
+asked for them to be removed on 23 November 2026. The TIN is not written in this file either,
+because this repository is public on GitHub. It does survive in the repository's history, in the
+commit that first added it to the footer; removing it from there means rewriting that history.
 
 ---
 

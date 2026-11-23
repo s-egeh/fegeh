@@ -17,10 +17,8 @@ const headOffice = COMPANY.addresses[0];
  *
  * [TODO-CLIENT] hours (the defaults are a placeholder).
  *
- * The TIN and the P.O. Box are deliberately not emitted: the TIN is shown in
- * the footer at the client's request but is not repeated to search engines,
- * and the P.O. Box is in Ashaiman, which would contradict the Afienya locality
- * of the PostalAddress below.
+ * The P.O. Box is deliberately not emitted: it is in Ashaiman, which would
+ * contradict the Afienya locality of the PostalAddress below.
  *
  * There is deliberately no `geo` property: no coordinates have been supplied
  * for the premises, and neither the centre of Afienya nor the estate pin Google

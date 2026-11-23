@@ -63,17 +63,6 @@ export const COMPANY = {
    */
   email: 'fegehlogistic2022@gmail.com',
 
-  /** Business-name registration number (Act 151). Also stated in GOVERNANCE. */
-  registrationNumber: 'BN452260422',
-
-  /**
-   * Taxpayer Identification Number, shown in the footer at the client's
-   * explicit request (23 November 2026). It was first kept off the site for the
-   * reason recorded in HANDOVER.md, "Business details on record"; publishing it
-   * is the client's decision. Kept out of the structured data.
-   */
-  tin: 'GHA-002363000-2',
-
   /** Postal address, as supplied. Separate from the street address in Afienya. */
   poBox: 'P.O. Box AS 213, Ashaiman',
 
@@ -183,7 +172,7 @@ export const MISSION =
 
 /*
  * The registration number is published so the claim can be checked. The TIN
- * is not repeated here; it appears only in the footer, at the client's request.
+ * is not published anywhere on the site.
  */
 export const GOVERNANCE =
   'Fegeh Logistics is a business name registered in Ghana on 15 April 2022 under the Registration of Business Names Act, 1962 (Act 151), registration number BN452260422. The business is committed to running its operations with clear lines of responsibility, honest communication with clients, and compliance with the regulatory requirements that apply to transport, warehousing and trade in Ghana.';
