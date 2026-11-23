@@ -109,7 +109,8 @@ export default function PrivacyPage() {
         <h2>Contact</h2>
         <p>
           {COMPANY.name}, {COMPANY.addresses[0].lines.join(', ')},{' '}
-          {COMPANY.addresses[0].region}, {COMPANY.addresses[0].country}.{' '}
+          {COMPANY.addresses[0].locality}, {COMPANY.addresses[0].region},{' '}
+          {COMPANY.addresses[0].country}.{' '}
           <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
         </p>
         <p>

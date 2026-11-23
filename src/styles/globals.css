@@ -304,12 +304,14 @@
     transition: opacity 420ms ease-out 600ms;
   }
 
-  /* Accra sits within a few pixels of Tema once the map is phone sized, so the
-     two labels become one smear. Drop the one that is not the hub (any place
-     marked minorOnMobile); the corridor list still names it. */
+  /* Accra sits within a few pixels of the Afienya hub once the map is phone
+     sized, so its node crowds the hub's ring. Drop any place marked
+     minorOnMobile — node, label and the leg drawn to it — below 640px; the
+     corridor list still names it. */
   @media (max-width: 639px) {
     .map-label--minor,
-    .map-node--minor {
+    .map-node--minor,
+    .map-leg--minor {
       display: none;
     }
   }

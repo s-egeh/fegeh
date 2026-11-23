@@ -57,6 +57,43 @@ export const CARGO_TYPES: { title: string; description: string; icon: LucideIcon
 ];
 
 /* ------------------------------------------------------------------ *
+ * Why Fegeh Logistics — homepage dark band (WhyUs).
+ *
+ * Positioning, not claims of record. 03 and 04 rest on facts the client
+ * supplied: the fleet is owned and operated by the business (FLEET_SIZE in
+ * src/data/fleet.ts — change the written-out figure here with it), and the
+ * business is run by a qualified industrial engineer.
+ * ------------------------------------------------------------------ */
+
+export const ADVANTAGES: { index: string; title: string; body: string }[] = [
+  {
+    index: '01',
+    title: 'One team, port to delivery',
+    body: 'Freight, storage, distribution and forwarding are run by one team, so goods do not change hands between companies on their way from the port to your customer.',
+  },
+  {
+    index: '02',
+    title: 'Positioned for the corridor',
+    body: 'Based at Mateheko, Afienya, near the Tema industrial hub, within reach of Tema Port and the roads that run into Accra and north.',
+  },
+  {
+    index: '03',
+    title: 'A fleet of our own',
+    body: 'Twenty-seven trucks and freight vehicles operated directly, so capacity is committed against vehicles the business controls rather than hired in on the day.',
+  },
+  {
+    index: '04',
+    title: 'Engineering behind the planning',
+    body: 'The business is run by a qualified industrial engineer, and loads, routes and storage are planned as a system rather than job by job.',
+  },
+  {
+    index: '05',
+    title: 'Planned before it is promised',
+    body: 'Dates are committed against the vehicles, storage space and people actually available, and the price is agreed before anything moves.',
+  },
+];
+
+/* ------------------------------------------------------------------ *
  * How a job runs — homepage, dark band after "Why Fegeh Logistics".
  * Five steps, which is why PROCESS_STEPS (four, used on /services) is kept
  * separate rather than reconciled: they answer different questions.

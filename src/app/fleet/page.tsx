@@ -13,14 +13,14 @@ import { FleetFilterGrid } from '@/components/sections/FleetFilterGrid';
 import { PageHero } from '@/components/sections/PageHero';
 import { ButtonLink } from '@/components/ui/Button';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { MAINTENANCE_PILLARS } from '@/data/fleet';
+import { FLEET_SIZE, MAINTENANCE_PILLARS } from '@/data/fleet';
 import { DRIVER_POINTS, DRIVERS_COPY, LOAD_SECURING, MAINTENANCE_BLOCKS } from '@/data/operations';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Our fleet',
   description:
-    'Articulated and rigid trucks, light delivery vehicles, container trailers and warehouse handling equipment for freight and distribution from Tema.',
+    'Articulated and rigid trucks, light delivery vehicles, container trailers and warehouse handling equipment for freight and distribution from Afienya, near Tema.',
   path: '/fleet',
 });
 
@@ -65,7 +65,8 @@ export default function FleetPage() {
               </Reveal>
               <Reveal delay={40}>
                 <p className="max-w-measure t-body-lg text-slate-600">
-                  Vehicles and handling equipment are managed as one fleet. Maintenance schedules,
+                  Fegeh Logistics owns and operates {FLEET_SIZE} trucks and freight vehicles. They
+                  and the handling equipment are managed as one fleet. Maintenance schedules,
                   safety compliance and dispatch are planned together, so a breakdown is a
                   maintenance failure the business owns, not an excuse passed to the client.
                 </p>

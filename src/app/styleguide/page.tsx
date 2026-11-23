@@ -103,7 +103,7 @@ export default function StyleguidePage() {
               <p className="u-mono mb-3 text-[10px] text-slate-600">Manifest stat cells</p>
               <div className="grid grid-cols-1 sm:grid-cols-3">
                 <Stat label="Services" count={4} />
-                <Stat label="Base" value="Tema" />
+                <Stat label="Base" value="Afienya" />
                 <Stat label="Coverage" value="Nationwide" />
               </div>
             </div>
@@ -166,7 +166,7 @@ export default function StyleguidePage() {
 
         <Block title="Badges, tags and rules">
           <div className="flex flex-wrap items-center gap-4">
-            <Badge>Free Zone Enclave</Badge>
+            <Badge>Afienya</Badge>
             <IndexTag>01</IndexTag>
             <Divider className="w-40" />
           </div>

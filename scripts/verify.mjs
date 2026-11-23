@@ -52,6 +52,7 @@ const ROUTES = [
   '/services/freight-forwarding',
   '/fleet',
   '/coverage',
+  '/clients',
   '/safety-compliance',
   '/gallery',
   '/faq',
@@ -61,7 +62,7 @@ const ROUTES = [
   '/terms',
 ];
 /*
- * /team, /clients and /csr are left out while their data is empty: they return
+ * /team and /csr are left out while their data is empty: they return
  * a 404 by design until the client supplies the content. Add each back here
  * when it is published.
  */

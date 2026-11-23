@@ -87,7 +87,7 @@ export const SERVICES: Service[] = [
     name: 'Freight & Haulage',
     division: 'Road Freight and Haulage',
     heading: 'Road freight and haulage',
-    standfirst: 'Full loads and part loads by road, nationwide from the Free Zone Enclave in Tema.',
+    standfirst: 'Full loads and part loads by road, nationwide from Afienya, near Tema.',
     short: 'Road freight nationwide, as full truckloads or part loads, collected and delivered to schedule.',
     menuLine: 'Full and part loads by road, nationwide.',
     summary:
@@ -103,13 +103,13 @@ export const SERVICES: Service[] = [
       'Collection and delivery planned to agreed windows.',
     ],
     overview: [
-      'Fegeh Logistics moves goods by road across Ghana from its base in the Free Zone Enclave, Tema — whole truckloads for clients with the volume to fill a vehicle, and part loads for consignments that do not.',
+      'Fegeh Logistics moves goods by road across Ghana from its base at Afienya, near the Tema industrial hub — whole truckloads for clients with the volume to fill a vehicle, and part loads for consignments that do not.',
       'A full load travels direct from collection to delivery. A part load shares the vehicle with other consignments heading the same way, which brings the cost down when the volume does not justify a truck of its own.',
       'Either way, the movement is planned against the collection and delivery windows you give us, and the price is agreed before anything is loaded.',
     ],
     glance: [
       { label: 'Service', value: 'Road freight and haulage' },
-      { label: 'Coverage', value: 'Nationwide from Tema' },
+      { label: 'Coverage', value: 'Nationwide from Afienya' },
       { label: 'Load types', value: 'Full truckload (FTL) and part load (LTL)' },
       { label: 'Engagement', value: 'Per consignment or ongoing arrangement' },
     ],
@@ -147,11 +147,11 @@ export const SERVICES: Service[] = [
     name: 'Warehousing & Storage',
     division: 'Warehousing and Storage',
     heading: 'Warehousing and storage',
-    standfirst: 'Short- and long-term storage, inventory handling and cross-docking in Tema.',
-    short: 'Short- and long-term storage with inventory handling and cross-docking, close to Tema Port.',
+    standfirst: 'Short- and long-term storage, inventory handling and cross-docking at Afienya, near Tema.',
+    short: 'Short- and long-term storage with inventory handling and cross-docking, within reach of Tema Port.',
     menuLine: 'Storage, inventory handling and cross-docking.',
     summary:
-      'Short- and long-term storage close to Tema Port, with goods received, recorded and released on instruction. Cross-docking moves goods straight from inbound to outbound when they do not need to be stored.',
+      'Short- and long-term storage within reach of Tema Port, with goods received, recorded and released on instruction. Cross-docking moves goods straight from inbound to outbound when they do not need to be stored.',
     icon: Warehouse,
     image: '/images/services/service-warehousing-storage.jpg',
     imageAlt: 'Stacks of wooden pallets in an open yard',
@@ -169,7 +169,7 @@ export const SERVICES: Service[] = [
     ],
     glance: [
       { label: 'Service', value: 'Warehousing and storage' },
-      { label: 'Location', value: 'Free Zone Enclave, Tema' },
+      { label: 'Location', value: 'Afienya, near Tema' },
       { label: 'Storage terms', value: 'Short-term and long-term' },
       { label: 'Engagement', value: 'Per consignment or ongoing arrangement' },
     ],
@@ -285,7 +285,7 @@ export const SERVICES: Service[] = [
     overview: [
       'An import or export movement involves more parties than a road delivery — the shipping line, the port, customs, and often a clearing agent. Fegeh Logistics coordinates the movement between them so that you have one point of contact instead of several.',
       'We support the documentation the movement depends on: checking that the paperwork is complete and consistent before the goods arrive, and following it through the port.',
-      'Once goods are released, they can come straight into storage in the Free Zone Enclave or go on to their destination on our vehicles, without changing hands again.',
+      'Once goods are released, they can come straight into storage at Afienya or go on to their destination on our vehicles, without changing hands again.',
     ],
     glance: [
       { label: 'Service', value: 'Freight forwarding and documentation support' },
@@ -408,7 +408,7 @@ export interface ServiceScope {
 export const SERVICE_SCOPE: Record<ServiceSlug, ServiceScope> = {
   'freight-haulage': {
     included: [
-      'Road freight nationwide from Tema',
+      'Road freight nationwide from Afienya',
       'Full truckload and part-load movements',
       'Vehicle matched to the goods and the delivery point',
       'Collection and delivery planned to agreed windows',

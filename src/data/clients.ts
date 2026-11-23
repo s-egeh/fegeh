@@ -10,16 +10,29 @@ export interface Client {
 }
 
 /**
- * [TODO-CLIENT] Clients the business may name publicly, each with that
- * client's permission. Logos only if the client supplies them.
+ * Clients the business may name publicly. The client has confirmed it holds
+ * permission to name these four.
  *
- * Empty until supplied. While it is empty, /clients returns a 404, is left out
- * of the navigation, the footer and the sitemap, and the homepage clients
- * marquee does not render. Add entries and it all switches back on; the
- * sitemap is the one manual step — remove '/clients' from the `exclude` array
- * in next-sitemap.config.js.
+ * Describe them as clients — customers of Fegeh Logistics. Never "partners",
+ * "in partnership with", or anything implying endorsement or a relationship
+ * beyond being a customer.
+ *
+ * `logo` stays null. A third-party logo is never downloaded, recreated or
+ * traced: it goes on the site only if that company supplies the file together
+ * with permission to use it. Until then each renders as a text wordmark.
+ *
+ * [TODO-CLIENT] Confirm the sectors. They were inferred, not supplied.
+ *
+ * If this array is ever emptied again, /clients returns a 404 and drops out of
+ * the navigation, footer and homepage marquee by itself; add '/clients' back
+ * to the `exclude` array in next-sitemap.config.js by hand.
  */
-export const CLIENTS: Client[] = [];
+export const CLIENTS: Client[] = [
+  { name: 'Bel Aqua', sector: 'Beverages', logo: null },
+  { name: 'Wilmar', sector: 'Agribusiness', logo: null },
+  { name: 'Guinness', sector: 'Brewing', logo: null },
+  { name: 'Olam', sector: 'Agribusiness', logo: null },
+];
 
 export const CLIENTS_PUBLISHED = CLIENTS.length > 0;
 

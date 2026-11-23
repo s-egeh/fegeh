@@ -16,7 +16,7 @@ import { cn } from '@/lib/utils';
 export const metadata: Metadata = pageMetadata({
   title: 'Services',
   description:
-    'Road freight and haulage, warehousing and storage, scheduled and last-mile distribution, and freight forwarding from the Free Zone Enclave in Tema.',
+    'Road freight and haulage, warehousing and storage, scheduled and last-mile distribution, and freight forwarding from Afienya, near the Tema industrial hub.',
   path: '/services',
 });
 

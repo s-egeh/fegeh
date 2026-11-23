@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 
 /**
  * The national outline as a faint decorative backdrop, with a gold marker on
- * Tema.
+ * the base at Afienya.
  *
  * Shares its geometry with the coverage map rather than carrying a second copy.
  * It used to hold its own hand-traced polygon — a straight-diagonal coastline
@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
  * just at 6% opacity where it was harder to notice.
  */
 export function GhanaOutline({ className }: { className?: string }) {
-  const [temaX, temaY] = MAP_POINTS.tema;
+  const [baseX, baseY] = MAP_POINTS.afienya;
 
   return (
     <svg
@@ -23,7 +23,7 @@ export function GhanaOutline({ className }: { className?: string }) {
       className={cn('block', className)}
     >
       <path d={GHANA_PATH} stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
-      <circle cx={temaX} cy={temaY} r="7" fill="var(--gold)" />
+      <circle cx={baseX} cy={baseY} r="7" fill="var(--gold)" />
     </svg>
   );
 }

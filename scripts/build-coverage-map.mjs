@@ -41,6 +41,7 @@ const VIEW = { width: 600, height: 760, margin: 24 };
  * TypeScript. checkPlacesMatch() below reads the real file and fails the run if
  * the two ever drift apart, so the duplication cannot go quietly wrong. */
 const PLACES = {
+  afienya: { lon: 0.0028, lat: 5.7967 },
   tema: { lon: -0.0166, lat: 5.6698 },
   port: { lon: 0.0167, lat: 5.6333 },
   accra: { lon: -0.187, lat: 5.6037 },

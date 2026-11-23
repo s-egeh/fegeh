@@ -18,11 +18,12 @@ module.exports = {
    * and cannot tell the difference, so it would list /icon.png and
    * /apple-icon.png as crawlable URLs alongside the real pages.
    *
-   * /team, /clients, /csr and /gallery are switched off until the client
-   * supplies their content. This config is CommonJS and cannot import the
-   * TypeScript flags that govern them, so publishing one means two changes:
-   * supply its data (TEAM, CLIENTS or CSR_INITIATIVES, or set GALLERY_PUBLISHED
-   * to true), and delete its path from this array.
+   * /team, /csr and /gallery are switched off until the client supplies their
+   * content. This config is CommonJS and cannot import the TypeScript flags
+   * that govern them, so publishing one means two changes: supply its data
+   * (TEAM or CSR_INITIATIVES, or set GALLERY_PUBLISHED to true), and delete its
+   * path from this array. /clients was published that way once CLIENTS was
+   * supplied; if CLIENTS is ever emptied, add '/clients' back here.
    */
   exclude: [
     '/styleguide',
@@ -30,7 +31,6 @@ module.exports = {
     '/icon.png',
     '/apple-icon.png',
     '/team',
-    '/clients',
     '/csr',
     '/gallery',
   ],

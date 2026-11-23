@@ -32,7 +32,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Management team',
   description:
-    'The management team at Fegeh Logistics, the logistics and distribution business in the Free Zone Enclave, Tema: who runs each function and what they own.',
+    'The management team at Fegeh Logistics, the logistics and distribution business at Afienya, near Tema: who runs each function and what they own.',
   path: '/team',
   noindex: !TEAM_PUBLISHED,
 });

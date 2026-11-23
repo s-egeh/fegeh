@@ -43,7 +43,7 @@ function leg(a: readonly [number, number], b: readonly [number, number]) {
    */
   /*
    * The bow direction is a single consistent sign, chosen by eye against the
-   * rendered map: as drawn, the coastal Tema-Takoradi leg follows the
+   * rendered map: as drawn, the coastal Afienya–Takoradi leg follows the
    * coastline, which is where that road runs anyway. If a northern destination
    * is added whose leg runs close to Tamale's, check the sign again — near-
    * parallel legs bowed the same way can overlap for much of their length.
@@ -75,11 +75,11 @@ function leg(a: readonly [number, number], b: readonly [number, number]) {
 
 /** Which side of its node each label sits on, and any vertical nudge. */
 /*
- * Tema and Accra project about nineteen units apart, so their labels go on
- * opposite sides of their nodes: Tema to the right, Accra to the left.
+ * Afienya and Accra project about twenty-eight units apart, so their labels go
+ * on opposite sides of their nodes: Afienya to the right, Accra to the left.
  */
 const LABELS: Record<string, { anchor: 'start' | 'end'; dy: number }> = {
-  tema: { anchor: 'start', dy: 0 },
+  afienya: { anchor: 'start', dy: 0 },
   accra: { anchor: 'end', dy: -12 },
   kumasi: { anchor: 'end', dy: 0 },
   takoradi: { anchor: 'end', dy: 0 },
@@ -87,21 +87,23 @@ const LABELS: Record<string, { anchor: 'start' | 'end'; dy: number }> = {
 };
 
 /*
- * A leg shorter than this is not drawn. Tema to Accra projects to about
- * nineteen user units and the port transfer to about five — at that size a
- * bowed line is a smudge between two touching dots, not a route. Those
- * corridors keep their rows in the list, which is where the information
- * actually lives.
+ * A leg shorter than this is not drawn. The port transfer projects to about
+ * seventeen user units — at that size a bowed line is a smudge leaving the
+ * hub's ring, not a route — so it keeps its row in the list, which is where the
+ * information actually lives. Afienya to Accra, at about twenty-eight, is drawn.
  */
 const MIN_DRAWN_LENGTH = 24;
 
 /** Places drawn as nodes. A place marked `onMap: false` is listed but not drawn. */
 const MAP_PLACES = Object.entries(PLACES).filter(([, place]) => place.onMap !== false);
 
+/** The hub every corridor runs from, read from the data rather than named here. */
+const HUB_ID = Object.keys(PLACES).find((id) => PLACES[id].hub) as keyof typeof PLACES;
+
 /** The accessible name, built from the data so it cannot drift from the list. */
 const MAP_LABEL = `Map of Ghana showing Fegeh Logistics distribution corridors from ${
-  PLACES.tema.label
-} to ${CORRIDORS.filter((corridor) => corridor.from === 'tema')
+  PLACES[HUB_ID].label
+} to ${CORRIDORS.filter((corridor) => corridor.from === HUB_ID)
   .map((corridor) => PLACES[corridor.to].label)
   .join(', ')
   .replace(/, ([^,]*)$/, ' and $1')}.`;
@@ -143,6 +145,9 @@ export function CoverageMap({ className, activeCorridor = null }: CoverageMapPro
   const legs = CORRIDORS.map((corridor) => ({
     id: corridorId(corridor),
     crossBorder: Boolean(PLACES[corridor.to].crossBorder),
+    // A destination dropped on phones takes its leg with it; otherwise the leg
+    // is a gold stub leaving the hub towards nothing.
+    minor: Boolean(PLACES[corridor.to].minorOnMobile),
     from: PLACES[corridor.from].label,
     to: PLACES[corridor.to].label,
     ...leg(MAP_POINTS[corridor.from], MAP_POINTS[corridor.to]),
@@ -183,6 +188,7 @@ export function CoverageMap({ className, activeCorridor = null }: CoverageMapPro
             <path
               key={item.id}
               d={item.d}
+              className={item.minor ? 'map-leg--minor' : undefined}
               fill="none"
               stroke={item.crossBorder ? 'var(--gold-d)' : 'var(--gold)'}
               strokeWidth={active ? 2 : 1.5}

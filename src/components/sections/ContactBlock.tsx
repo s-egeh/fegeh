@@ -30,7 +30,7 @@ export function ContactBlock({
             <address className={cn('mt-2 not-italic', strong)}>
               {address.lines.join(', ')}
               <br />
-              {address.region}, {address.country}
+              {address.locality}, {address.region}, {address.country}
             </address>
             <a
               href={COMPANY.mapDirectionsUrl}

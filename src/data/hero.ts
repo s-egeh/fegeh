@@ -20,7 +20,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     eyebrow: 'Logistics & Distribution',
     heading: 'Goods moved, stored and delivered — on schedule.',
     standfirst:
-      'Road freight, warehousing and distribution from the Free Zone Enclave in Tema, nationwide and across West Africa.',
+      'Road freight, warehousing and distribution from Afienya, near the Tema industrial hub, nationwide and across West Africa.',
     title: 'Logistics and distribution',
     primary: { label: 'Request a quote', href: '/quote' },
     secondary: { label: 'Our services', href: '/services' },
@@ -30,9 +30,9 @@ export const HERO_SLIDES: HeroSlide[] = [
     image: '/images/hero/hero-warehouse-storage.jpg',
     imageAlt: 'Wooden pallets stacked close together',
     eyebrow: 'Warehousing & Storage',
-    heading: 'Storage close to the port.',
+    heading: 'Storage within reach of the port.',
     standfirst:
-      'Short- and long-term storage, inventory handling and cross-docking in the Free Zone Enclave, close to Tema Port.',
+      'Short- and long-term storage, inventory handling and cross-docking at Afienya, within reach of Tema Port.',
     title: 'Warehousing and storage',
     primary: { label: 'Warehousing', href: '/services/warehousing-storage' },
     secondary: { label: 'Request a quote', href: '/quote' },

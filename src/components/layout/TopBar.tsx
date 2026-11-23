@@ -23,7 +23,7 @@ export function TopBar() {
       <div className="container-site flex h-full items-center justify-between">
         <p className="u-mono flex items-center gap-2 text-[11px] text-slate-400">
           <MapPin aria-hidden="true" strokeWidth={1.5} className="h-[14px] w-[14px] text-gold" />
-          {headOffice.lines[0]}, {headOffice.region}
+          {headOffice.locality}, {headOffice.region}
         </p>
 
         <div className="flex items-center gap-5">

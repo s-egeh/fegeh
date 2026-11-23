@@ -6,9 +6,9 @@ export const SITE_NAME = 'Fegeh Logistics';
 export const TITLE_TEMPLATE = '%s | Fegeh Logistics';
 
 /** The homepage keeps this title rather than the template. Used by the root layout and the homepage. */
-export const HOME_TITLE = 'Fegeh Logistics | Logistics & Distribution in Tema, Ghana';
+export const HOME_TITLE = 'Fegeh Logistics | Logistics & Distribution near Tema, Ghana';
 export const HOME_DESCRIPTION =
-  'Logistics and distribution from the Free Zone Enclave in Tema: road freight, warehousing, last-mile distribution and freight forwarding across Ghana.';
+  'Logistics and distribution from Afienya, near the Tema industrial hub: road freight, warehousing, last-mile distribution and freight forwarding across Ghana.';
 
 interface PageMetaInput {
   title: string;
@@ -42,7 +42,7 @@ export function pageMetadata({ title, description, path, image, noindex }: PageM
           url: absoluteUrl(ogImage),
           width: 1200,
           height: 630,
-          alt: `${SITE_NAME} — logistics and distribution, Tema, Ghana`,
+          alt: `${SITE_NAME} — logistics and distribution near Tema, Ghana`,
         },
       ],
     },

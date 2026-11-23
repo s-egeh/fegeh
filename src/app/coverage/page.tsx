@@ -14,7 +14,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Coverage and corridors',
   description:
-    'Distribution nationwide from the Free Zone Enclave in Tema, with regular routes to Accra, Kumasi, Takoradi and Tamale and movement into West Africa.',
+    'Distribution nationwide from Afienya, near the Tema industrial hub, with regular routes to Accra, Kumasi, Takoradi and Tamale and movement into West Africa.',
   path: '/coverage',
 });
 
@@ -44,7 +44,10 @@ export default function CoveragePage() {
               >
                 <KeyFacts
                   rows={[
-                    { label: 'Base', value: 'FREE ZONE ENCLAVE, TEMA' },
+                    {
+                      label: 'Base',
+                      value: `${COMPANY.addresses[0].locality}, NEAR TEMA`.toUpperCase(),
+                    },
                     { label: 'Domestic', value: 'NATIONWIDE' },
                     { label: 'Sub-region', value: 'WEST AFRICA, CASE BY CASE' },
                     { label: 'Engagement', value: 'PER CONSIGNMENT OR ONGOING' },
@@ -81,7 +84,7 @@ export default function CoveragePage() {
             headingId="coverage-map-heading"
             eyebrow="The network"
             heading="Where the goods go."
-            intro="The ring marks the base in Tema. The short runs into Accra and from the port sit too close to the hub to draw, so they are listed rather than mapped."
+            intro="The ring marks the base at Afienya, about 15 km north of Tema. The short run from Tema Port sits too close to the hub to draw, so it is listed rather than mapped."
             onDark
           />
 

@@ -1,6 +1,6 @@
 # Fegeh Logistics
 
-Corporate website for Fegeh Logistics — logistics and distribution from the Free Zone Enclave, Tema,
+Corporate website for Fegeh Logistics — logistics and distribution from Afienya, near Tema,
 Ghana: road freight and haulage, warehousing and storage, scheduled and last-mile distribution, and
 freight forwarding.
 
@@ -97,15 +97,15 @@ component.
 | Process steps, pricing factors, enquiry checklist | `src/data/operations.ts` |
 | Homepage hero slides | `src/data/hero.ts` |
 | Gallery images and captions | `src/data/gallery.ts` |
-| Team, clients, community work, company structure, milestones | `src/data/team.ts`, `clients.ts`, `csr.ts`, `org.ts`, `milestones.ts` — all empty until supplied |
+| Team, clients, community work, company structure, milestones | `src/data/team.ts`, `clients.ts`, `csr.ts`, `org.ts`, `milestones.ts` — empty until supplied, except the four named clients |
 
 ### Content that switches on when supplied
 
-Every list renders nothing while it is empty. `/team`, `/clients` and `/csr` return a 404 page,
+Every list renders nothing while it is empty. `/team` and `/csr` return a 404 page,
 are marked `noindex`, and are left out of the navigation, footer and homepage until their data
 files hold real content. Filling the data switches them back on. The one manual step is the
-sitemap: remove the path from the `exclude` array in `next-sitemap.config.js`. The full table is
-in `HANDOVER.md`, section 3.
+sitemap: remove the path from the `exclude` array in `next-sitemap.config.js`, as was done for
+`/clients` when its four clients were supplied. The full table is in `HANDOVER.md`, section 3.
 
 ### Changing a phone number
 
@@ -191,9 +191,10 @@ projected pixel space, and writes finished SVG path strings to `src/data/coverag
 is generated — do not edit it. `d3-geo` stays a devDependency and never reaches the browser.
 
 Adding a place means adding it to `PLACES` in `src/data/coverage.ts` **and** to the mirror in the
-script, then re-running it. The script refuses to run if the two copies disagree. A place too close
-to the Tema hub to draw (Tema Port) is marked `onMap: false`: it keeps its row in the route list
-but gets no node. Legs shorter than 24 units (Tema–Accra, the port transfer) are listed, not drawn.
+script, then re-running it. The script refuses to run if the two copies disagree. The hub is
+Afienya. A place too close to it to draw (Tema and Tema Port, about 13 and 17 units away) is
+marked `onMap: false` and gets no node; the port transfer keeps its row in the route list. Legs
+shorter than 24 units (the port transfer, again) are listed, not drawn.
 
 ---
 
@@ -241,8 +242,8 @@ links, no `href="#"`, no unresolved placeholder string reaching a visitor and an
 header contrast at eight widths. `verify-mobile.mjs` checks tap targets, body-copy size, form-control
 size and the mobile drawer. `verify-menu.mjs` covers the desktop mega-menu end to end.
 
-The route lists leave out `/team`, `/clients` and `/csr` while they are switched off; add each back
-when it is published.
+The route lists leave out `/team` and `/csr` while they are switched off; add each back when it is
+published.
 
 ---
 

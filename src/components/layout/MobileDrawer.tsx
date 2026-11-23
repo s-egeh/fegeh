@@ -126,7 +126,13 @@ export function MobileDrawer({ open, onClose, pathname }: MobileDrawerProps) {
                   className="flex h-12 items-center gap-3 text-white transition-colors duration-fast hover:text-gold"
                 >
                   <Phone aria-hidden="true" strokeWidth={1.5} className="h-4 w-4 shrink-0 text-gold" />
-                  <span className="u-mono text-[13px]">{phone.display}</span>
+                  {/* Labelled, because there are two numbers and they reach
+                      different people. Stacked, not side by side: inline, the
+                      longer label does not fit a 360px drawer. */}
+                  <span className="flex flex-col gap-0.5">
+                    <span className="u-mono text-[13px] leading-none">{phone.display}</span>
+                    <span className="u-mono text-[10px] leading-none text-slate-400">{phone.label}</span>
+                  </span>
                 </a>
               </li>
             ))}

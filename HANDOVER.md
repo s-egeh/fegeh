@@ -18,11 +18,11 @@ delete rows as they close. Every item is also marked `[TODO-CLIENT]` in the sour
 | # | Item | Where to change it |
 |---|---|---|
 | 1 | **A working mailbox for `info@fegehlogistics.com`, or a different address.** The address was assumed from the new domain; it was not supplied and no mailbox exists for it yet. It appears on every page and receives the contact and quote forms, so until the mailbox exists every enquiry sent to it is lost. It is held out of the structured data until confirmed. | `COMPANY.email` in `src/data/company.ts`; `CONTACT_TO_EMAIL` in the host env; then `CONFIRMED.email` in `src/lib/schema.ts` |
-| 2 | **Confirmation of the operations phone number — currently 9 digits.** The site shows `024 454 668` and dials `+23324454668`; WhatsApp uses `23324454668`. Ghanaian mobile numbers are normally 10 digits (`0XX XXX XXXX`), so a digit may be missing. Every `tel:` link, the WhatsApp button and the structured data read this one value. | `COMPANY.phones` and the `COMPANY.whatsapp` fallback in `src/data/company.ts`; `NEXT_PUBLIC_WHATSAPP` in the host env |
-| 3 | **Canonical host — apex or www on fegehlogistics.com, the other redirected.** The code defaults to `https://fegehlogistics.com` (the apex). Decide which host serves the site, redirect the other one to it, and **set `SITE_URL` and `NEXT_PUBLIC_SITE_URL` on the host to that same value.** If the two variables disagree, or name a host that redirects, every canonical, sitemap URL, `robots.txt` Host line and share-card URL points at a redirect — the mistake that affected the site this codebase came from. If www is chosen, also change the default in both files listed here so a missing variable cannot fall back to the wrong host. | Host env; `DEFAULT_SITE_URL` in `src/lib/utils.ts` and `next-sitemap.config.js` |
-| 4 | **Business hours.** The hours shown are placeholders, and are held out of the structured data because of it. | `COMPANY.hours` in `src/data/company.ts`; then `CONFIRMED.hours` in `src/lib/schema.ts` |
-| 5 | **A vector master of the logo (SVG, AI or PDF).** The supplied PNG is adequate at current sizes — every output is a downscale — but it is raster, so large-format print and any future upscale are limited by it. See section 4. | Export a large transparent PNG to `assets/brand/fegeh-logo-source.png` and run `npm run build:brand` |
-| 6 | **Photography.** Every image under `public/images/` is temporary stock standing in for the client's own, as recorded in `docs/image-credits.md`. See section 4. | `public/images/`; alt text in `src/data`; `docs/image-credits.md` |
+| 2 | **Canonical host — apex or www on fegehlogistics.com, the other redirected.** The code defaults to `https://fegehlogistics.com` (the apex). Decide which host serves the site, redirect the other one to it, and **set `SITE_URL` and `NEXT_PUBLIC_SITE_URL` on the host to that same value.** If the two variables disagree, or name a host that redirects, every canonical, sitemap URL, `robots.txt` Host line and share-card URL points at a redirect — the mistake that affected the site this codebase came from. If www is chosen, also change the default in both files listed here so a missing variable cannot fall back to the wrong host. | Host env; `DEFAULT_SITE_URL` in `src/lib/utils.ts` and `next-sitemap.config.js` |
+| 3 | **Business hours.** The hours shown are placeholders, and are held out of the structured data because of it. | `COMPANY.hours` in `src/data/company.ts`; then `CONFIRMED.hours` in `src/lib/schema.ts` |
+| 4 | **A vector master of the logo (SVG, AI or PDF).** The supplied PNG is adequate at current sizes — every output is a downscale — but it is raster, so large-format print and any future upscale are limited by it. See section 4. | Export a large transparent PNG to `assets/brand/fegeh-logo-source.png` and run `npm run build:brand` |
+| 5 | **Photography.** Every image under `public/images/` is temporary stock standing in for the client's own, as recorded in `docs/image-credits.md`. See section 4. | `public/images/`; alt text in `src/data`; `docs/image-credits.md` |
+| 6 | **The four client sectors.** Bel Aqua (Beverages), Wilmar (Agribusiness), Guinness (Brewing) and Olam (Agribusiness) were inferred, not supplied, and each shows under its name on `/clients`. Confirm or correct them. The client holds permission to name the four; their logos stay off the site unless each company supplies the file together with permission to use it. | `CLIENTS` in `src/data/clients.ts` |
 | 7 | **Mail delivery.** Create a Resend account, verify the sending domain, and set `RESEND_API_KEY`, `CONTACT_FROM_EMAIL` and `CONTACT_TO_EMAIL`. Then send one test from each of the three forms. See section 6. | Host env |
 | 8 | **Service set sign-off.** The four services — Freight & Haulage, Warehousing & Storage, Distribution, Freight Forwarding — and their slugs were proposed, not supplied. Confirm the set, the names, every capability, and both columns of every "what's included / what isn't" block. | `src/data/services.ts` |
 | 9 | **Customs and forwarding position.** The freight-forwarding page describes coordination and documentation *support* only, and lists customs declarations as a licensed broker under "not included". Confirm whether Fegeh Logistics holds a customs broker licence, works through a partner, or neither, before the page is published. | `src/data/services.ts`, `src/data/faq.ts` |
@@ -35,62 +35,83 @@ delete rows as they close. Every item is also marked `[TODO-CLIENT]` in the sour
 
 Numbered in the order they matter for launch.
 
-The legal name (Fegeh Logistics) and the WhatsApp line (the operations number) are confirmed and no
-longer listed.
+Confirmed and no longer listed: the legal name; both phone numbers (operations `024 454 6668`,
+managing proprietor `025 611 3380`) and the WhatsApp line (the operations number); the head office
+address and its Ghana Post GPS code; the business registration; that the 27 vehicles are owned
+rather than hired in; and permission to name four clients.
 
 1. Email address(es): a working mailbox for the public address, and where form enquiries should be delivered.
-2. Confirmation of the operations number, `024 454 668` — nine digits, where Ghanaian mobile numbers are normally ten — plus any other numbers and what each is for.
-3. Business hours (the current hours are a placeholder default).
-4. Precise directions to the office in the Free Zone Enclave — the gate, the building, a landmark.
-5. Social media accounts, if any.
-6. Sign-off on the four services and their slugs.
-7. Customs broker licence status, or the clearing partner used.
-8. Which vehicle and equipment types are actually operated, whether they are owned, hired or subcontracted, and any publishable capacities or unit counts.
-9. The regular routes, and whether any cross-border routes are actively served.
-10. The goods handled, and any refused (for example chilled, frozen or hazardous goods).
-11. Whether vehicle tracking is offered to clients.
-12. Typical lead time for a consignment.
-13. Any minimum storage period or quantity.
-14. Insurance and liability position — for goods in transit and goods in storage — and what cover may be named publicly.
-15. Payment terms and accepted payment methods.
-16. Whether cash-on-delivery collection is offered.
-17. Whether ports or airports other than Tema are handled.
-18. Which compliance documents can be offered to procurement teams.
-19. Confirmation of every safety and maintenance practice described on `/safety-compliance` and `/fleet`.
-20. The documentation a client receives (quote, goods-received record, delivery documents, records, invoice) — confirm or correct the list.
-21. Approval of all drafted copy (section 1, item 10).
-22. Department contact routing (operations, warehouse, accounts), if enquiries should go to different people.
-23. The management team: names, roles, biographies, credentials, portraits, and each person's permission to publish. Optionally a chief executive's statement in their own words.
-24. Company structure: departments and what each owns.
-25. Clients that may be named publicly, with their permission; logos only if supplied by the client.
-26. Testimonials with named people, companies and written permission.
-27. Community and sustainability work, with photographs.
-28. Company milestones with dates.
-29. Strategic pillars, market drivers and future plans, if the client wants those sections.
-30. Careers: roles hired for and how to apply.
-31. Photography — see section 4. Reconcile the slot list in section 4 against the client's own shot list.
-32. A vector master of the logo (SVG, AI or PDF) — see section 4.
-33. A company profile PDF, if one should be downloadable. The download button was removed and returns only when a real file exists.
-34. Standard terms of carriage or storage, if they exist, so `/terms` can link to them.
-35. Registration details (business registration number, TIN), if the client wants them shown.
+2. Business hours (the current hours are a placeholder default).
+3. Landmark directions to the premises in Emmanuel Estate, Mateheko, Afienya — the junction to turn at, the gate, a neighbouring business. The Ghana Post GPS code is published, but the Google Maps pin marks the estate's first junction, a place created by Google users, not the door. A Google Business Profile at the premises would give the map a pin of its own.
+4. Social media accounts, if any.
+5. Sign-off on the four services and their slugs.
+6. Customs broker licence status, or the clearing partner used.
+7. Which vehicle and equipment types make up the 27 owned vehicles, and any publishable capacities or per-type counts.
+8. The regular routes, and whether any cross-border routes are actively served.
+9. The goods handled, and any refused (for example chilled, frozen or hazardous goods).
+10. Whether vehicle tracking is offered to clients. The client's profile says goods are "monitored to ensure safety from pickup to delivery": say whether that means GPS tracking of vehicles or supervised handling, and `/safety-compliance` will say so plainly.
+11. Typical lead time for a consignment.
+12. Any minimum storage period or quantity.
+13. Insurance and liability position — for goods in transit and goods in storage — and what cover may be named publicly.
+14. Payment terms and accepted payment methods.
+15. Whether cash-on-delivery collection is offered.
+16. Whether ports or airports other than Tema are handled.
+17. Which compliance documents can be offered to procurement teams.
+18. Confirmation of every safety and maintenance practice described on `/safety-compliance` and `/fleet`.
+19. The documentation a client receives (quote, goods-received record, delivery documents, records, invoice) — confirm or correct the list.
+20. Approval of all drafted copy (section 1, item 10).
+21. Department contact routing (operations, warehouse, accounts), if enquiries should go to different people.
+22. The management team: names, roles, biographies, credentials, portraits, and each person's permission to publish. Optionally a chief executive's statement in their own words.
+23. Company structure: departments and what each owns.
+24. Logos for the four named clients, only if each company supplies the file with permission to use it; any further clients that may be named.
+25. Testimonials with named people, companies and written permission.
+26. Community and sustainability work, with photographs.
+27. Further company milestones with dates. The registration date is the only one so far.
+28. Strategic pillars, market drivers and future plans, if the client wants those sections.
+29. Careers: roles hired for and how to apply.
+30. Photography — see section 4. Reconcile the slot list in section 4 against the client's own shot list.
+31. A vector master of the logo (SVG, AI or PDF) — see section 4.
+32. A company profile PDF, if one should be downloadable. The download button was removed and returns only when a real file exists.
+33. Standard terms of carriage or storage, if they exist, so `/terms` can link to them.
+34. The fleet figure. The client's profile says "27+ trucks"; the site says 27, because a number can be checked and "27+" cannot. Confirm 27 is the count, and say when it changes.
+35. Whether storage is at the Afienya premises. The site places the warehouse at the base in Afienya, as it previously placed it at the old address; confirm, or say where goods are stored.
 
 Where each one goes:
 
 | Item(s) | File |
 |---|---|
-| 1–5 | `src/data/company.ts` (the hours in `COMPANY.hours`), and flip the matching flag in `CONFIRMED` in `src/lib/schema.ts` once email and hours are confirmed |
-| 6, 7, 13 | `src/data/services.ts`, `src/data/faq.ts` |
-| 8 | `src/data/fleet.ts` |
-| 9 | `COMPANY.routes` in `src/data/company.ts` and `CORRIDORS` in `src/data/coverage.ts`; for a new place, add it to `PLACES` in both `src/data/coverage.ts` and `scripts/build-coverage-map.mjs`, then run `npm run build:map` |
-| 10–20 | `src/data/faq.ts`, `src/data/safety.ts`, `src/data/operations.ts` (each has a `pending` note naming the question — never rendered) |
-| 22 | `src/app/contact/page.tsx` |
-| 23 | `TEAM` and `CEO_STATEMENT` in `src/data/team.ts` |
-| 24 | `DIVISIONS`, `ORG_INTRO` and `GOVERNANCE_PRACTICE` in `src/data/org.ts` |
-| 25, 26 | `CLIENTS` and `TESTIMONIALS` in `src/data/clients.ts`; logos in `public/images/clients/` |
-| 27 | `src/data/csr.ts` |
-| 28 | `src/data/milestones.ts` |
-| 29 | `STRATEGIC_PILLARS`, `MARKET_DRIVERS` and `FUTURE_PLANS` in `src/data/company.ts` |
-| 30 | `CAREERS_COPY` and `CAREERS_BLOCKS` in `src/data/org.ts` |
+| 1–4 | `src/data/company.ts` (the hours in `COMPANY.hours`), and flip the matching flag in `CONFIRMED` in `src/lib/schema.ts` once email and hours are confirmed. Landmark directions go in `src/app/contact/page.tsx`, "How to find us" |
+| 5, 6, 12 | `src/data/services.ts`, `src/data/faq.ts` |
+| 7 | `src/data/fleet.ts` |
+| 8 | `COMPANY.routes` in `src/data/company.ts` and `CORRIDORS` in `src/data/coverage.ts`; for a new place, add it to `PLACES` in both `src/data/coverage.ts` and `scripts/build-coverage-map.mjs`, then run `npm run build:map` |
+| 9–19 | `src/data/faq.ts`, `src/data/safety.ts`, `src/data/operations.ts` (each has a `pending` note naming the question — never rendered) |
+| 21 | `src/app/contact/page.tsx` |
+| 22 | `TEAM` and `CEO_STATEMENT` in `src/data/team.ts` |
+| 23 | `DIVISIONS`, `ORG_INTRO` and `GOVERNANCE_PRACTICE` in `src/data/org.ts` |
+| 24, 25 | `CLIENTS` and `TESTIMONIALS` in `src/data/clients.ts`; logos in `public/images/clients/` |
+| 26 | `src/data/csr.ts` |
+| 27 | `src/data/milestones.ts` |
+| 28 | `STRATEGIC_PILLARS`, `MARKET_DRIVERS` and `FUTURE_PLANS` in `src/data/company.ts` |
+| 29 | `CAREERS_COPY` and `CAREERS_BLOCKS` in `src/data/org.ts` |
+| 34 | `FLEET_SIZE` in `src/data/fleet.ts`, and the written-out figure in `ADVANTAGES` in `src/data/operations.ts` |
+| 35 | Location copy in `src/data/services.ts`, `faq.ts`, `fleet.ts` and `hero.ts` |
+
+### Business details on record
+
+| Detail | Value | On the website |
+|---|---|---|
+| Registered name | Fegeh Logistics — a business name under the Registration of Business Names Act, 1962 (Act 151) | Yes — `GOVERNANCE` in `src/data/company.ts` |
+| Registration date | 15 April 2022 | Yes — `GOVERNANCE` |
+| Registration number | BN452260422 | Yes — `GOVERNANCE`, so the registration can be checked |
+| Taxpayer Identification Number | Supplied by the client; held in the client's records, not in this repository | **No, deliberately** |
+| Ghana Post GPS | GN-1103-1168 | Yes — `/contact` |
+
+**The TIN is kept off the website on purpose.** It belongs on invoices, contracts and filings. A
+public page gains nothing from it, and a registration number and TIN published side by side are
+exactly what invoice-redirection fraud uses to look convincing. It is not written in this file
+either, because this repository is public on GitHub and anything committed here is published. If
+the client wants the TIN on the site, that is their decision — but they should ask for it
+explicitly.
 
 ---
 
@@ -103,7 +124,7 @@ its data — no component needs editing.
 |---|---|---|
 | `TEAM` (`src/data/team.ts`) | Yes | `/team` (404 page, `noindex`), its nav and footer links, the homepage leadership preview, the "Meet the management team" link on `/about` |
 | `CEO_STATEMENT` + a featured team member | Yes | The chief executive statement on `/about` |
-| `CLIENTS` (`src/data/clients.ts`) | Yes | `/clients` (404 page, `noindex`), the Clients nav item and footer link, the homepage clients marquee |
+| `CLIENTS` (`src/data/clients.ts`) | No — four named clients, published | `/clients`, the Clients nav item and footer link, and the homepage clients marquee all render |
 | `TESTIMONIALS` | Yes | The testimonial rail on `/clients` |
 | `CSR_INITIATIVES` (`src/data/csr.ts`) | Yes | `/csr` (404 page, `noindex`), its nav and footer links, the homepage CSR band |
 | `DIVISIONS` (`src/data/org.ts`) | Yes | The structure diagram on `/about` and `/team` |
@@ -114,12 +135,12 @@ its data — no component needs editing.
 | `GALLERY_PUBLISHED` (`src/data/gallery.ts`) | `false` | `/gallery` builds and renders but is unlinked and `noindex` |
 
 **One manual step per page.** The sitemap config is CommonJS and cannot read the TypeScript data,
-so `/team`, `/clients`, `/csr` and `/gallery` are listed in the `exclude` array of
-`next-sitemap.config.js`. When one of them is published, delete it from that array. The browser
-test scripts (`scripts/audit.mjs`, `verify.mjs`, `verify-mobile.mjs`) leave the three 404 routes
-out of their route lists for the same reason — add each back when it goes live.
+so `/team`, `/csr` and `/gallery` are listed in the `exclude` array of `next-sitemap.config.js`.
+When one of them is published, delete it from that array — as was done for `/clients`. The browser
+test scripts (`scripts/audit.mjs`, `verify.mjs`, `verify-mobile.mjs`) leave `/team` and `/csr` out
+of their route lists for the same reason — add each back when it goes live.
 
-**A note on the 404 status.** While switched off, `/team`, `/clients` and `/csr` render the 404
+**A note on the 404 status.** While switched off, `/team` and `/csr` render the 404
 page with `noindex`, but the HTTP status is 200, not 404. The root `src/app/loading.tsx` wraps every
 page in a Suspense boundary, so Next.js starts streaming before the page calls `notFound()` and the
 status can no longer change. Unknown service slugs (`/services/anything`) behave the same way, as
@@ -212,7 +233,7 @@ any cropping decisions being made later.
 |---|---|---|---|
 | `hero/hero-highway-truck.jpg` | 16:10 | 2400×1500 | A loaded Fegeh Logistics truck on a Ghanaian highway, shot low, early light. Homepage slide 1, `/about`, `/quote`. |
 | `hero/hero-warehouse-storage.jpg` | 16:10 | 2400×1500 | Inside the warehouse: palletised goods in storage. Homepage slide 2, `/coverage`. |
-| `hero/hero-vehicle-loading.jpg` | 16:10 | 2400×1500 | Vehicles loading at the warehouse in the Free Zone Enclave. Homepage slide 3, `/services`, the Services mega-menu. |
+| `hero/hero-vehicle-loading.jpg` | 16:10 | 2400×1500 | Vehicles loading at the warehouse. Homepage slide 3, `/services`, the Services mega-menu. |
 | `hero/hero-port-containers.jpg` | 16:10 | 2400×1500 | Containers at Tema Port. Homepage slide 4. |
 | `services/service-freight-haulage.jpg` | 16:10 | 1600×1000 | **Freight & Haulage** — a loaded truck on a trunk road. |
 | `services/service-warehousing-storage.jpg` | 16:10 | 1600×1000 | **Warehousing & Storage** — racked or stacked pallets in the warehouse. |
@@ -223,7 +244,7 @@ any cropping decisions being made later.
 | `fleet/fleet-delivery-vehicle.jpg` | 4:3 | 1600×1200 | **Light delivery vehicle** at a retail drop. |
 | `fleet/fleet-container-trailer.jpg` | 4:3 | 1600×1200 | **Container trailer** leaving Tema Port. |
 | `fleet/fleet-handling-equipment.jpg` | 4:3 | 1600×1200 | **Warehouse handling equipment** — a forklift moving pallets. |
-| `gallery/gallery-morning-dispatch.jpg` | 16:10 | ≥1600 long edge | Trucks lined up in the Free Zone Enclave before morning dispatch. Also beside the homepage introduction. |
+| `gallery/gallery-morning-dispatch.jpg` | 16:10 | ≥1600 long edge | Trucks lined up at the Afienya base before morning dispatch. Also beside the homepage introduction. |
 | `gallery/gallery-load-check.jpg` | 4:5 | ≥1600 long edge | A driver checking how a load is secured before departure. Also beside the homepage introduction. |
 | `gallery/gallery-pallet-loading.jpg` | 16:10 | ≥1600 long edge | Palletised goods being loaded for a nationwide delivery. |
 | `gallery/gallery-rigid-truck-accra.jpg` | 4:5 | ≥1600 long edge | A rigid truck on a delivery route in Greater Accra. |
@@ -245,8 +266,8 @@ any cropping decisions being made later.
 | `gallery/gallery-pallet-wrapping.jpg` | 4:5 | ≥1600 long edge | Goods being wrapped and secured on a pallet. |
 | `gallery/gallery-container-unloading.jpg` | 16:10 | ≥1600 long edge | A container being unloaded at the warehouse. |
 | `gallery/gallery-last-mile-tema.jpg` | 4:5 | ≥1600 long edge | A light delivery vehicle in Tema. |
-| `gallery/gallery-head-office.jpg` | 16:10 | ≥1600 long edge | The office in the Free Zone Enclave. Also the `/contact` and `/team` heroes and the About mega-menu. |
-| `gallery/gallery-first-light-departure.jpg` | 4:5 | ≥1600 long edge | A loaded truck leaving the Free Zone Enclave at first light. |
+| `gallery/gallery-head-office.jpg` | 16:10 | ≥1600 long edge | The office in Emmanuel Estate, Mateheko, Afienya. Also the `/contact` and `/team` heroes and the About mega-menu. |
+| `gallery/gallery-first-light-departure.jpg` | 4:5 | ≥1600 long edge | A loaded truck leaving the Afienya base at first light. |
 | `team/team-<name>.jpg` | 4:5 | 800×1000 | One portrait per team member, path set in `src/data/team.ts`. Until supplied, a monogram tile shows. |
 | `csr/…` | 16:10 | 1600×1000 | One per community initiative, path set in `src/data/csr.ts`. |
 | `clients/client-*.png` | — | max height 48px | Transparent logos, **supplied by the client only** and only with each company's permission. Never sourced from the web. |
@@ -288,7 +309,7 @@ Every FAQ answer and safety block whose truth depends on information not yet sup
 `pending` note in its data file. The drafted answer is what renders, so a visitor never sees a
 placeholder. Where a fact such as a lead time or minimum is not known, the copy says what is true —
 that it is agreed case by case — rather than inventing a number. The questions to put to the client
-are items 7–20 in section 2; find each one with:
+are items 6–19 in section 2; find each one with:
 
 ```bash
 grep -rn "pending:" src/data
@@ -368,18 +389,25 @@ anywhere, point `danger` at `var(--gold-ink)` in `tailwind.config.ts` — it pas
 
 ## 9. Verification status
 
-Run on the Fegeh Logistics build, 2026-11-22 (Next.js 14.2.35, Node 24):
+Run on the Fegeh Logistics build with the Afienya address, two phone numbers and the four named
+clients, 2026-11-23 (Next.js 14.2.35, Node 24):
 
 | Check | Scope | Result |
 |---|---|---|
 | `npm run typecheck` | Whole codebase | Clean |
 | `npm run lint` | Whole codebase | Clean |
+| `npm run build:map` | Coverage map regenerated with the Afienya hub | Clean; looked at on desktop and at 360 and 390px |
 | `npm run build:brand` | Every logo, icon and the share card | Clean; every crop inspected by eye |
 | `npm run build` | 27 static outputs incl. 4 service pages | Clean |
-| `scripts/audit.mjs` | 17 routes | Pass |
-| `scripts/verify.mjs` | 16 routes × 8 widths, incl. header nav contrast | Pass |
-| `scripts/verify-mobile.mjs` | 16 routes × 5 widths, touch | Pass |
-| `scripts/verify-menu.mjs` | 18 mega-menu checks | Pass |
+| `scripts/audit.mjs` | 18 routes, incl. `/clients` | Pass |
+| `scripts/verify.mjs` | 17 routes × 8 widths, incl. header nav contrast | Pass |
+| `scripts/verify-mobile.mjs` | 17 routes × 5 widths, touch | Pass |
+| `scripts/verify-menu.mjs` | 19 mega-menu checks, incl. the Clients item | Pass |
+
+Also checked against the running build: every `tel:` link on 13 pages is one of the two numbers,
+every WhatsApp link is `wa.me/233244546668`, and the old nine-digit number appears nowhere; the
+JSON-LD carries both numbers and the postal address, and holds back email, hours and the Ghana Post
+GPS code; the TIN appears on no page. The `/contact` map embed was loaded and lands in Afienya.
 
 Two build-environment problems came up during that run. Neither is in the code, but both look
 like site faults:
@@ -395,8 +423,9 @@ like site faults:
   route each run. Restarting `npm start` and loading each image once before the scripts run avoids
   it. On Vercel, images are optimised by Vercel's own service, not inside this server process.
 
-The sitemap generates 15 URLs on `https://fegehlogistics.com`; `/styleguide`, `/gallery`, `/team`,
-`/clients` and `/csr` are excluded.
+The sitemap generates 16 URLs on `https://fegehlogistics.com`, `/clients` among them;
+`/styleguide`, `/gallery`, `/team` and `/csr` are excluded. `/team` joins it — 17 URLs — once
+`TEAM` has an entry and `'/team'` is removed from the `exclude` array.
 
 One build attempt failed inside `next/font` while fetching Google Fonts and passed on an identical
 re-run. The fonts are fetched at build time, so a build host without access to

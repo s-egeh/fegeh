@@ -28,7 +28,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Corporate social responsibility',
   description:
-    'The community and sustainability work Fegeh Logistics supports in Tema and along the routes it runs, and how the business chooses where to invest its time.',
+    'The community and sustainability work Fegeh Logistics supports in Afienya and along the routes it runs, and how the business chooses where to invest its time.',
   path: '/csr',
   noindex: !CSR_PUBLISHED,
 });

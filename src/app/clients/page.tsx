@@ -19,15 +19,18 @@ import { SECTORS } from '@/data/services';
 import { pageMetadata } from '@/lib/seo';
 
 /*
- * /clients is switched off until the client supplies the companies it may name
- * (src/data/clients.ts). While CLIENTS is empty the route returns a 404 and
- * carries noindex, and it is left out of the navigation, the footer and the
- * sitemap.
+ * /clients renders only while CLIENTS (src/data/clients.ts) has entries. If it
+ * is emptied the route returns a 404 and carries noindex, and it drops out of
+ * the navigation and the footer.
+ *
+ * The companies listed are clients — customers. Nothing on this page may call
+ * them partners or imply endorsement; "partnership" survives only as the name
+ * of the data constants describing how an ongoing arrangement works.
  */
 export const metadata: Metadata = pageMetadata({
-  title: 'Clients and partners',
+  title: 'Clients',
   description:
-    'The companies Fegeh Logistics moves, stores and distributes goods for from the Free Zone Enclave in Tema, and what an ongoing logistics arrangement involves.',
+    'The companies Fegeh Logistics moves, stores and distributes goods for from its base near Tema, and what an ongoing logistics arrangement involves.',
   path: '/clients',
   noindex: !CLIENTS_PUBLISHED,
 });
@@ -38,7 +41,7 @@ export default function ClientsPage() {
   return (
     <>
       <PageHero
-        heading="Clients and partners"
+        heading="Clients"
         standfirst="Ongoing arrangements with companies that depend on their goods arriving on time."
         image="/images/gallery/gallery-distributor-unloading.jpg"
         imageAlt="A delivery being unloaded at a distributor’s warehouse"
@@ -49,7 +52,7 @@ export default function ClientsPage() {
       <section aria-labelledby="clients-intro-heading" className="section-y bg-bone">
         <div className="container-site">
           <h2 id="clients-intro-heading" className="sr-only">
-            Our partnerships
+            Our clients
           </h2>
           <Reveal>
             <p className="max-w-legal t-body-lg text-slate-600">{PARTNERSHIP_COPY.intro}</p>
@@ -87,12 +90,12 @@ export default function ClientsPage() {
         </section>
       ) : null}
 
-      {/* 3 — Partnership approach (dark) */}
+      {/* 3 — How an ongoing arrangement works (dark) */}
       <section aria-labelledby="partnership-heading" className="grain section-y relative bg-ink-900">
         <div className="container-site relative z-10">
           <SectionHeader
             headingId="partnership-heading"
-            eyebrow="Partnership approach"
+            eyebrow="Ongoing arrangements"
             heading="Capacity planned around your programme."
             onDark
           />
@@ -129,12 +132,12 @@ export default function ClientsPage() {
         </section>
       ) : null}
 
-      {/* 5 — What a partnership looks like (dark) */}
+      {/* 5 — What an ongoing arrangement looks like (dark) */}
       <section aria-labelledby="partnership-points-heading" className="grain section-y relative bg-ink-900">
         <div className="container-site relative z-10">
           <SectionHeader
             headingId="partnership-points-heading"
-            eyebrow="Partnership"
+            eyebrow="In practice"
             heading="What an ongoing arrangement looks like."
             intro="The practical difference between an agreed arrangement and calling us when something needs moving."
             onDark

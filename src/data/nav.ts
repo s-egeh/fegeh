@@ -60,7 +60,7 @@ export const NAV: NavItem[] = [
     feature: {
       image: '/images/gallery/gallery-head-office.jpg',
       imageAlt: 'An office building',
-      line: 'Logistics and distribution from the Free Zone Enclave, Tema.',
+      line: 'Logistics and distribution from Afienya, near Tema.',
       cta: { label: 'Read about us', href: '/about' },
     },
   },
@@ -92,7 +92,7 @@ export const FOOTER_COMPANY_LINKS = [
   { label: 'About us', href: '/about' },
   ...(TEAM_PUBLISHED ? [{ label: 'Management team', href: '/team' }] : []),
   { label: 'Safety & compliance', href: '/safety-compliance' },
-  ...(CLIENTS_PUBLISHED ? [{ label: 'Clients & partners', href: '/clients' }] : []),
+  ...(CLIENTS_PUBLISHED ? [{ label: 'Clients', href: '/clients' }] : []),
   ...(CSR_PUBLISHED ? [{ label: 'Corporate social responsibility', href: '/csr' }] : []),
   ...(GALLERY_PUBLISHED ? [{ label: 'Gallery', href: '/gallery' }] : []),
   { label: 'Request a quote', href: '/quote' },

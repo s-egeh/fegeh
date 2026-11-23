@@ -28,13 +28,25 @@ export interface FleetUnit {
 /*
  * [TODO-CLIENT] Confirm which of these vehicle and equipment types the business
  * operates, and delete any it does not. These are the types the four services
- * call for, described in general terms — not an inventory. Where vehicles are
- * hired in or subcontracted rather than owned, say so and the copy on /fleet
- * will be adjusted to match.
+ * call for, described in general terms — not an inventory.
+ *
+ * Owned, not hired in: the client has confirmed that its vehicles are owned
+ * and operated by Fegeh Logistics, so /fleet states them as its own fleet.
  *
  * Each photograph is named after its vehicle type's slug (fleet-<slug>.jpg);
  * HANDOVER.md says what each one should show.
  */
+
+/**
+ * Trucks and freight vehicles owned and operated by the business, as confirmed
+ * by the client. A total across every vehicle type — which is why it lives
+ * here and on the /fleet intro, never as a `Capacity` row in one unit's specs,
+ * where 27 would read as 27 of that type.
+ *
+ * Also written out as "Twenty-seven" in ADVANTAGES (src/data/operations.ts);
+ * change both together when the fleet changes.
+ */
+export const FLEET_SIZE = 27;
 
 export const FLEET_FILTERS: { value: FleetCategory | 'all'; label: string }[] = [
   { value: 'all', label: 'All' },
@@ -52,11 +64,11 @@ export const FLEET: FleetUnit[] = [
     category: 'long-haul',
     image: '/images/fleet/fleet-articulated-truck.jpg',
     imageAlt: 'A tractor unit pulling a tipper trailer',
-    summary: 'Full loads over long distances, from Tema to the regions.',
+    summary: 'Full loads over long distances, from Afienya to the regions.',
     specs: [
       { label: 'Type', value: 'Tractor unit and semi-trailer' },
       { label: 'Typical load', value: 'Full truckloads of palletised or bagged goods' },
-      { label: 'Typical route', value: 'Tema to Kumasi, Takoradi and Tamale' },
+      { label: 'Typical route', value: 'Afienya to Kumasi, Takoradi and Tamale' },
       { label: 'Availability', value: 'Per consignment, or planned under an arrangement' },
     ],
     gallery: [
@@ -106,11 +118,11 @@ export const FLEET: FleetUnit[] = [
     category: 'container',
     image: '/images/fleet/fleet-container-trailer.jpg',
     imageAlt: 'An empty container chassis trailer',
-    summary: 'Containers between Tema Port, the Free Zone Enclave and inland.',
+    summary: 'Containers between Tema Port, Afienya and inland.',
     specs: [
       { label: 'Type', value: 'Flatbed or skeletal container trailer' },
       { label: 'Typical load', value: 'Import and export containers' },
-      { label: 'Typical route', value: 'Tema Port to the Free Zone Enclave and inland' },
+      { label: 'Typical route', value: 'Tema Port to Afienya and inland' },
       { label: 'Availability', value: 'Per container, booked against release' },
     ],
     gallery: [
@@ -128,7 +140,7 @@ export const FLEET: FleetUnit[] = [
     specs: [
       { label: 'Type', value: 'Forklifts and pallet trucks' },
       { label: 'Typical use', value: 'Receiving, put-away, picking and loading' },
-      { label: 'Location', value: 'Warehouse in the Free Zone Enclave, Tema' },
+      { label: 'Location', value: 'Warehouse at Afienya, near Tema' },
     ],
     gallery: [
       { src: '/images/fleet/fleet-handling-equipment.jpg', alt: 'A forklift parked beside a concrete wall' },

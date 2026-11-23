@@ -17,8 +17,8 @@
  * never drift away from the coastline it is supposed to sit on. Add a place
  * here, mirror it in the script, re-run `npm run build:map`, and it appears.
  *
- * Coordinates are locality-level, not survey pins: the Tema hub is the town,
- * not a gate in the Free Zone Enclave.
+ * Coordinates are locality-level, not survey pins: the Afienya hub is the
+ * town, not the premises.
  */
 export interface Place {
   label: string;
@@ -28,19 +28,25 @@ export interface Place {
   hub?: boolean;
   /** Outside Ghana, so it renders differently. */
   crossBorder?: boolean;
-  /** Dropped from the map below 640px, where it would collide with Tema. */
+  /** Dropped from the map below 640px, where it would collide with the hub. */
   minorOnMobile?: boolean;
   /**
-   * False for a place too close to the hub to draw as its own node. Tema Port
-   * projects about four pixels from Tema; drawn, its dot and label sit on top of
-   * the hub's. The corridor keeps its row in the list, which is where the
-   * information lives.
+   * False for a place too close to the hub to draw as its own node. The corridor
+   * keeps its row in the list, which is where the information lives.
    */
   onMap?: boolean;
 }
 
+/*
+ * The hub is Afienya, about 15 km north of Tema. At map scale it projects
+ * about 13 units from Tema and 17 from Tema Port — both inside or against the
+ * hub's 14-unit ring — so neither is drawn: their dots would sit on the ring
+ * and their labels on the hub's. Tema stays in the list as the reference point
+ * the map copy names; Tema Port keeps its corridor row.
+ */
 export const PLACES: Record<string, Place> = {
-  tema: { label: 'Tema', lon: -0.0166, lat: 5.6698, hub: true },
+  afienya: { label: 'Afienya', lon: 0.0028, lat: 5.7967, hub: true },
+  tema: { label: 'Tema', lon: -0.0166, lat: 5.6698, onMap: false },
   port: { label: 'Tema Port', lon: 0.0167, lat: 5.6333, onMap: false },
   accra: { label: 'Accra', lon: -0.187, lat: 5.6037, minorOnMobile: true },
   kumasi: { label: 'Kumasi', lon: -1.6244, lat: 6.6885 },
@@ -61,26 +67,26 @@ export const corridorId = (corridor: Corridor) => `${corridor.from}-${corridor.t
 export const CORRIDORS: Corridor[] = [
   {
     from: 'port',
-    to: 'tema',
-    note: 'Transfers between the Port of Tema and the base in the Free Zone Enclave.',
+    to: 'afienya',
+    note: 'Transfers between the Port of Tema and the base at Afienya.',
   },
   {
-    from: 'tema',
+    from: 'afienya',
     to: 'accra',
     note: 'Short-haul distribution into Greater Accra, to trade and retail delivery points.',
   },
   {
-    from: 'tema',
+    from: 'afienya',
     to: 'kumasi',
     note: 'Road freight into the middle belt and on to distribution points around Kumasi.',
   },
   {
-    from: 'tema',
+    from: 'afienya',
     to: 'takoradi',
     note: 'West along the coast to Takoradi and the Western Region.',
   },
   {
-    from: 'tema',
+    from: 'afienya',
     to: 'tamale',
     note: 'Long-haul north to Tamale and the northern regions.',
   },
@@ -92,10 +98,10 @@ export const COVERAGE_NODES: Place[] = Object.values(PLACES);
 /* [TODO-CLIENT: review wording] — the copy below. */
 export const COVERAGE_COPY = {
   standfirst:
-    'Distribution nationwide from the Free Zone Enclave in Tema, with movement into the wider West African sub-region.',
+    'Distribution nationwide from Afienya, near the Tema industrial hub, with movement into the wider West African sub-region.',
 
   whereWeRun: [
-    'The base in the Free Zone Enclave sits close to Tema Port and to the roads that run north, west and into Accra, which is why most consignments start there. From that base, goods are distributed nationwide.',
+    'The base at Afienya sits near the Tema industrial hub, within reach of Tema Port and of the roads that run north, west and into Accra, which is why most consignments start there. From that base, goods are distributed nationwide.',
     'The corridors below are the routes named most often. They are not a limit — a destination that is not listed is still one we will quote. What changes between routes is not whether we go, but the vehicle, the turnaround and the paperwork the movement needs.',
   ],
 

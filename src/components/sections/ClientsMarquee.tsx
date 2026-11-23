@@ -94,7 +94,7 @@ export function ClientsMarquee() {
     <section aria-labelledby="clients-heading" className="clip-x section-y-tight bg-bone">
       <div className="container-site flex flex-col items-center text-center">
         <Reveal>
-          <Eyebrow>Clients &amp; partners</Eyebrow>
+          <Eyebrow>Clients</Eyebrow>
         </Reveal>
         {/* A section heading, so it takes the section heading size. It was
             set at t-h4, which is why it read as a caption. The full
@@ -106,7 +106,7 @@ export function ClientsMarquee() {
         </Reveal>
         <Reveal delay={110}>
           <p className="mt-5 max-w-intro t-body-lg text-slate-600">
-            Long-term partnerships with leading companies operating in Ghana.
+            Companies Fegeh Logistics moves, stores and delivers goods for.
           </p>
         </Reveal>
       </div>
@@ -119,7 +119,7 @@ export function ClientsMarquee() {
 
       <div className="container-site mt-10 flex justify-center">
         <Reveal delay={160}>
-          <TextLink href="/clients">More about our partners</TextLink>
+          <TextLink href="/clients">More about our clients</TextLink>
         </Reveal>
       </div>
     </section>

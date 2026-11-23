@@ -206,6 +206,7 @@ console.log(`\nMega-menu acceptance tests against ${BASE}\n`);
     ['/services/freight-haulage', 'Services'],
     ['/safety-compliance', 'About'],
     ['/fleet', 'Fleet'],
+    ['/clients', 'Clients'],
   ]) {
     await goto(page, `${BASE}${route}`);
     await ready();

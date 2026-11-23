@@ -15,7 +15,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'Contact us',
   description:
-    'Contact the Fegeh Logistics operations team in the Free Zone Enclave, Tema, about road freight, warehousing, distribution or an import or export shipment.',
+    'Contact the Fegeh Logistics operations team in Afienya, near Tema, about road freight, warehousing, distribution or an import or export shipment.',
   path: '/contact',
 });
 
@@ -84,8 +84,15 @@ export default function ContactPage() {
                 <address className="not-italic text-ink-900">
                   {headOffice.lines.join(', ')}
                   <br />
-                  {headOffice.region}, {headOffice.country}
+                  {headOffice.locality}, {headOffice.region}, {headOffice.country}
                 </address>
+                {/* In Ghana the GPS code finds the door more reliably than the
+                    street name, so it gets its own labelled row rather than
+                    being folded into the postal lines. */}
+                <dl>
+                  <dt className="u-mono text-[10px] text-gold-ink">Ghana Post GPS</dt>
+                  <dd className="u-mono mt-1 text-[13px] text-ink-900">{COMPANY.digitalAddress}</dd>
+                </dl>
                 <a
                   href={COMPANY.mapDirectionsUrl}
                   target="_blank"
@@ -147,16 +154,16 @@ export default function ContactPage() {
           <div className="lg:col-span-6 lg:col-start-7">
             <Reveal>
               <p className="max-w-measure t-body-lg text-slate-600">
-                Our office is in the Free Zone Enclave in Tema. It is an enclave address rather than
-                a street-numbered one, so satellite navigation will get you to the area but not to
-                the door.
+                Our office is on {headOffice.lines.join(', ')}, in {headOffice.locality}, north of
+                Tema. Its Ghana Post GPS code is {COMPANY.digitalAddress}, which finds the premises
+                more reliably than the street name. The map pin marks the estate, not the door.
               </p>
             </Reveal>
 
             {/*
               [TODO-CLIENT] Supply landmark-based directions — the junction to
               turn at, the neighbouring business, and what the gate looks like.
-              Until then this says honestly that the pin is approximate rather
+              Until then this says honestly that the pin marks the estate rather
               than inventing a landmark that may not exist.
             */}
             <Reveal delay={70}>

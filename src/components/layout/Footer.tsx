@@ -118,7 +118,7 @@ export function Footer() {
                 <address className="not-italic">
                   {address.lines.join(', ')}
                   <br />
-                  {address.region}, {address.country}
+                  {address.locality}, {address.region}, {address.country}
                 </address>
               </li>
             ))}
@@ -130,7 +130,11 @@ export function Footer() {
                   className="flex min-h-11 items-center gap-3 t-small text-slate-400 transition-colors duration-fast hover:text-white lg:min-h-0"
                 >
                   <Phone aria-hidden="true" strokeWidth={1.5} className="h-4 w-4 shrink-0 text-gold" />
-                  <span className="u-mono text-[12px]">{phone.display}</span>
+                  {/* Labelled: there are two numbers, reaching different people. */}
+                  <span className="flex flex-col gap-1">
+                    <span className="u-mono text-[12px] leading-none">{phone.display}</span>
+                    <span className="u-mono text-[10px] leading-none text-slate-400">{phone.label}</span>
+                  </span>
                 </a>
               </li>
             ))}

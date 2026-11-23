@@ -5,7 +5,9 @@ import { TextMask } from '@/components/motion/TextMask';
 import { TextLink } from '@/components/ui/Button';
 import { Figure } from '@/components/ui/Media';
 import { Eyebrow } from '@/components/ui/SectionHeader';
-import { COMPANY_OVERVIEW_PARAGRAPHS } from '@/data/company';
+import { ACTIVE_ADDRESSES, COMPANY_OVERVIEW_PARAGRAPHS } from '@/data/company';
+
+const headOffice = ACTIVE_ADDRESSES[0];
 
 /** Section 3 — 5/7 split. Asymmetric by design; 6/6 reads as a template. */
 export function IntroSplit() {
@@ -38,7 +40,10 @@ export function IntroSplit() {
           <Reveal delay={200} className="mt-10 block">
             <KeyFacts
               rows={[
-                { label: 'Head office', value: 'FREE ZONE ENCLAVE, TEMA' },
+                {
+                  label: 'Head office',
+                  value: `${headOffice.locality}, ${headOffice.region}`.toUpperCase(),
+                },
                 { label: 'Port', value: 'TEMA' },
                 { label: 'Coverage', value: 'NATIONWIDE, PLUS WEST AFRICAN SUB-REGION' },
                 { label: 'Engagement', value: 'PER CONSIGNMENT OR ONGOING' },

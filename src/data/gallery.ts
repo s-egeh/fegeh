@@ -48,7 +48,7 @@ export const GALLERY: GalleryItem[] = [
   {
     src: '/images/gallery/gallery-morning-dispatch.jpg',
     alt: 'Trucks lined up before morning dispatch',
-    caption: 'Morning dispatch, Tema',
+    caption: 'Morning dispatch, Afienya',
     category: 'fleet',
     ratio: 'landscape',
   },
@@ -202,7 +202,7 @@ export const GALLERY: GalleryItem[] = [
   {
     src: '/images/gallery/gallery-head-office.jpg',
     alt: 'An office building',
-    caption: 'Head office, Free Zone Enclave',
+    caption: 'Head office, Afienya',
     category: 'team',
     ratio: 'landscape',
   },

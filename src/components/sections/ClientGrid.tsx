@@ -40,7 +40,9 @@ export function ClientGrid() {
   if (CLIENTS.length === 0) return null;
 
   return (
-    <div className="grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
+    // Four across at desktop: four named clients fill one row instead of
+    // leaving the fourth alone under a row of three.
+    <div className="grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:grid-cols-4">
       {CLIENTS.map((client, index) => (
         <Cell key={client.name} client={client} delay={Math.min(index, 5) * 70} />
       ))}

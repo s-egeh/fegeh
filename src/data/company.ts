@@ -7,7 +7,7 @@
  */
 
 export interface Phone {
-  /** Mono label shown beside the number. [TODO-CLIENT] confirm which is which. */
+  /** Mono label shown beside the number. */
   label: string;
   /** Display form, spaced for readability. */
   display: string;
@@ -46,7 +46,7 @@ export const COMPANY = {
   /** Descriptor. Not in the Fegeh logo, which reads "FEGEH LOGISTICS" only. */
   descriptor: 'Logistics & Distribution',
   tagline:
-    'Logistics and distribution from the Free Zone Enclave, Tema — nationwide and across West Africa.',
+    'Logistics and distribution from Afienya, near the Tema industrial hub — nationwide and across West Africa.',
   shortTagline: 'Logistics and distribution, Ghana-wide.',
 
   /**
@@ -64,28 +64,41 @@ export const COMPANY = {
    */
   email: 'info@fegehlogistics.com',
 
+  /**
+   * Operations first: PRIMARY_PHONE is phones[0], and the header, top bar,
+   * call-to-action band and floating action stack show that one number. The
+   * footer, drawer, contact page and contact block list every entry.
+   */
   phones: [
-    { label: 'Operations', display: '024 454 668', tel: '+23324454668' },
+    { label: 'Operations', display: '024 454 6668', tel: '+233244546668' },
+    { label: 'Managing Proprietor', display: '025 611 3380', tel: '+233256113380' },
   ] satisfies Phone[],
 
+  /**
+   * Postal lines only. The Ghana Post GPS code is kept separately in
+   * digitalAddress and is not part of the schema.org streetAddress.
+   */
   addresses: [
     {
       label: 'Head office',
-      lines: ['Free Zone Enclave'],
-      locality: 'Tema',
+      lines: ['Charles Borkor Lane', 'Emmanuel Estate, Mateheko'],
+      locality: 'Afienya',
       region: 'Greater Accra',
       country: 'Ghana',
       countryCode: 'GH',
-      mapsQuery: 'Free Zone Enclave, Tema, Greater Accra, Ghana',
+      mapsQuery: 'Emmanuel Estate, Afienya, Greater Accra, Ghana',
       active: true,
     },
   ] satisfies Address[],
+
+  /** Ghana Post GPS. The practical way to find the premises. */
+  digitalAddress: 'GN-1103-1168',
 
   /**
    * Read from NEXT_PUBLIC_WHATSAPP so it can be swapped without a code change;
    * the default is the operations number.
    */
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || '23324454668',
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || '233244546668',
   whatsappPrefill: 'Hello Fegeh Logistics, I would like to enquire about ',
 
   /**
@@ -101,21 +114,33 @@ export const COMPANY = {
     { days: 'Sunday', hours: 'Closed' },
   ] satisfies BusinessHours[],
 
-  /** Corridor strip (signature element 1) and the coverage copy. */
+  /**
+   * Corridor strip (signature element 1) and the coverage copy. Mirrors
+   * CORRIDORS in src/data/coverage.ts.
+   */
   routes: [
-    'Tema → Accra',
-    'Tema → Kumasi',
-    'Tema → Takoradi',
-    'Tema → Tamale',
-    'Tema Port → Free Zone',
+    'Tema Port → Afienya',
+    'Afienya → Accra',
+    'Afienya → Kumasi',
+    'Afienya → Takoradi',
+    'Afienya → Tamale',
     'Nationwide distribution',
   ],
 
-  /** Google Maps embed and directions for the Free Zone Enclave, Tema. */
+  /**
+   * Google Maps embed and directions, both built from mapsQuery above.
+   *
+   * Checked by eye on 2026-11-22: the query resolves to "Emmanuel Estate first
+   * junct" (plus code QXHW+MRC), beside the Tema–Akosombo road in Afienya, at
+   * about 5.7792, -0.0030. The Ghana Post GPS code does not resolve reliably
+   * in Google Maps, so it is not used as the query. The pin is a place Google
+   * users created, not the business's own listing; if it ever moves, fall back
+   * to 'Afienya, Greater Accra, Ghana', which lands on the town centre.
+   */
   mapEmbedUrl:
-    'https://www.google.com/maps?q=Free%20Zone%20Enclave%2C%20Tema%2C%20Greater%20Accra%2C%20Ghana&output=embed',
+    'https://www.google.com/maps?q=Emmanuel%20Estate%2C%20Afienya%2C%20Greater%20Accra%2C%20Ghana&output=embed',
   mapDirectionsUrl:
-    'https://www.google.com/maps/dir/?api=1&destination=Free%20Zone%20Enclave%2C%20Tema%2C%20Greater%20Accra%2C%20Ghana',
+    'https://www.google.com/maps/dir/?api=1&destination=Emmanuel%20Estate%2C%20Afienya%2C%20Greater%20Accra%2C%20Ghana',
 } as const;
 
 export const PRIMARY_PHONE = COMPANY.phones[0];
@@ -130,11 +155,11 @@ export const ACTIVE_ADDRESSES = COMPANY.addresses.filter((address) => address.ac
  * [TODO-CLIENT: review wording] — everything from here to the end of
  * the file.
  *
- * Written for a logistics and distribution operator in the Tema Free
- * Zone Enclave and kept to positioning, capability and intent. There
- * are no figures, no dates and no named partners in any of it, because
- * none have been supplied. The client should read every line and either
- * approve it or replace it with their own.
+ * Written for a logistics and distribution operator based at Afienya,
+ * near Tema, and kept to positioning, capability and intent. The only
+ * figures and dates are the ones the client supplied — the registration
+ * date and number in GOVERNANCE. The client should read every line and
+ * either approve it or replace it with their own.
  * ------------------------------------------------------------------ */
 
 export const VISION =
@@ -143,8 +168,13 @@ export const VISION =
 export const MISSION =
   "To move, store and deliver our clients' goods with care and on schedule, with clear communication from the first enquiry to the final handover.";
 
+/*
+ * The registration number is published so the claim can be checked. The TIN
+ * is deliberately NOT published — it is recorded in HANDOVER.md for invoices,
+ * contracts and filings only.
+ */
 export const GOVERNANCE =
-  'Fegeh Logistics is committed to running its operations with clear lines of responsibility, honest communication with clients, and compliance with the regulatory requirements that apply to transport, warehousing and trade in Ghana.';
+  'Fegeh Logistics is a business name registered in Ghana on 15 April 2022 under the Registration of Business Names Act, 1962 (Act 151), registration number BN452260422. The business is committed to running its operations with clear lines of responsibility, honest communication with clients, and compliance with the regulatory requirements that apply to transport, warehousing and trade in Ghana.';
 
 export interface CoreValue {
   title: string;
@@ -216,7 +246,7 @@ export const FUTURE_PLANS: { index: string; title: string; description: string }
 
 /** The company paragraphs, used on home and about. */
 export const COMPANY_OVERVIEW_PARAGRAPHS = [
-  'Fegeh Logistics is a logistics and distribution business based in the Free Zone Enclave in Tema, within reach of Tema Port and the trunk roads that carry goods inland and along the coast.',
+  'Fegeh Logistics is a logistics and distribution business based at Mateheko, Afienya, near the Tema industrial hub, within reach of Tema Port and the trunk roads that carry goods inland and along the coast.',
   'The business moves, stores and distributes goods for companies that import, manufacture and trade: road freight across Ghana, warehousing and inventory handling, scheduled and last-mile distribution, and support with the documentation that import and export movements depend on.',
   'The aim is simple — to be the partner a client can plan around, with clear quotes, realistic timelines and one point of contact from collection to delivery.',
 ];

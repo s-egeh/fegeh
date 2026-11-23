@@ -33,7 +33,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata: Metadata = pageMetadata({
   title: 'About us',
   description:
-    'Fegeh Logistics is a logistics and distribution business in the Free Zone Enclave, Tema, offering road freight, warehousing, distribution and forwarding.',
+    'Fegeh Logistics is a logistics and distribution business at Afienya, near Tema, offering road freight, warehousing, distribution and freight forwarding.',
   path: '/about',
 });
 
@@ -58,7 +58,7 @@ export default function AboutPage() {
     <>
       <PageHero
         heading="About Fegeh Logistics"
-        standfirst="Logistics and distribution from the Free Zone Enclave in Tema, for the companies that import, manufacture and trade in Ghana."
+        standfirst="Logistics and distribution from Afienya, near the Tema industrial hub, for the companies that import, manufacture and trade in Ghana."
         image="/images/hero/hero-highway-truck.jpg"
         imageAlt="A tanker truck on a mountain highway"
         crumbs={[{ label: 'About', href: '/about' }]}

@@ -24,6 +24,7 @@ export const BURKINA_PATH =
 
 /** Projected city positions, in the same user space as the paths above. */
 export const MAP_POINTS: Record<string, readonly [number, number]> = {
+  afienya: [406.5, 611.5],
   tema: [404.5, 624.7],
   port: [407.9, 628.5],
   accra: [386.8, 631.6],

@@ -38,12 +38,12 @@ export const FAQ_GROUPS: FaqGroup[] = [
       {
         question: 'Where are you based?',
         answer:
-          'In the Free Zone Enclave in Tema, Greater Accra, close to Tema Port. Goods are collected, stored and distributed from there.',
+          'At Mateheko, Afienya, in Greater Accra — near the Tema industrial hub and within reach of Tema Port. Goods are collected, stored and distributed from there.',
       },
       {
         question: 'Which parts of Ghana do you deliver to?',
         answer:
-          'Nationwide. The routes we run most often are Tema to Accra, Kumasi, Takoradi and Tamale, but a destination that is not on that list is still one we will quote.',
+          'Nationwide. The routes we run most often are Afienya to Accra, Kumasi, Takoradi and Tamale, but a destination that is not on that list is still one we will quote.',
         pending: 'Confirm the regular routes and add any that are missing.',
       },
       {
@@ -88,7 +88,7 @@ export const FAQ_GROUPS: FaqGroup[] = [
       {
         question: 'Which routes do you run most often?',
         answer:
-          'Tema to Accra, Kumasi, Takoradi and Tamale, and transfers between Tema Port and the Free Zone Enclave. Those are the regular runs; we quote nationwide.',
+          'Afienya to Accra, Kumasi, Takoradi and Tamale, and transfers between Tema Port and the base at Afienya. Those are the regular runs; we quote nationwide.',
         pending: 'Confirm the route list and add any regular routes missing from it.',
       },
       {
@@ -154,7 +154,7 @@ export const FAQ_GROUPS: FaqGroup[] = [
       {
         question: 'Can you collect from Tema Port?',
         answer:
-          'Yes. Released cargo can be collected from the port and taken on to its destination, or into storage in the Free Zone Enclave.',
+          'Yes. Released cargo can be collected from the port and taken on to its destination, or into storage at Afienya.',
       },
       {
         question: 'Can we follow our consignment?',
@@ -246,7 +246,7 @@ export const FAQ_GROUPS: FaqGroup[] = [
       {
         question: 'Can released goods go straight into storage?',
         answer:
-          'Yes. Goods can come from the port into the warehouse in the Free Zone Enclave, or go straight on to their destination.',
+          'Yes. Goods can come from the port into the warehouse at Afienya, or go straight on to their destination.',
       },
     ],
   },

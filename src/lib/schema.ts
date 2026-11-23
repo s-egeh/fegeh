@@ -19,7 +19,8 @@ const headOffice = COMPANY.addresses[0];
  * no mailbox exists for it yet), hours (the defaults are a placeholder).
  *
  * There is deliberately no `geo` property: no coordinates have been supplied
- * for the premises, and the centre of Tema is not the location of the business.
+ * for the premises, and neither the centre of Afienya nor the estate pin Google
+ * resolves is the location of the business.
  */
 const CONFIRMED = {
   email: false,
