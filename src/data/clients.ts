@@ -11,10 +11,9 @@ export interface Client {
 }
 
 /**
- * Clients the business may name publicly — the companies it works with. The
- * client confirmed permission to name Bel Aqua, Wilmar and Olam, and on
- * 2026-11-23 removed Guinness and added Keda, Peak Steel, Sunda and Sankofa.
- * [TODO-CLIENT] Confirm permission to name the four added.
+ * Clients the business may name publicly — the companies it works with. On
+ * 2026-11-23 the client removed Guinness, added Keda, Peak Steel, Sunda and
+ * Sankofa, and confirmed it holds permission to name all seven.
  *
  * Describe them as clients — customers of Fegeh Logistics. Never "partners",
  * "in partnership with", or anything implying endorsement or a relationship
