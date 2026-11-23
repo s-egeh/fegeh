@@ -1,6 +1,7 @@
 export interface Client {
   name: string;
-  sector: string;
+  /** null when the sector is not known: nothing is shown under the name. */
+  sector: string | null;
   /**
    * Logo file path. If the file is not supplied, ClientTile renders the company
    * name as a wordmark in the utility typeface — a third-party logo is never
@@ -10,8 +11,10 @@ export interface Client {
 }
 
 /**
- * Clients the business may name publicly. The client has confirmed it holds
- * permission to name these four.
+ * Clients the business may name publicly — the companies it works with. The
+ * client confirmed permission to name Bel Aqua, Wilmar and Olam, and on
+ * 2026-11-23 removed Guinness and added Keda, Peak Steel, Sunda and Sankofa.
+ * [TODO-CLIENT] Confirm permission to name the four added.
  *
  * Describe them as clients — customers of Fegeh Logistics. Never "partners",
  * "in partnership with", or anything implying endorsement or a relationship
@@ -21,7 +24,11 @@ export interface Client {
  * traced: it goes on the site only if that company supplies the file together
  * with permission to use it. Until then each renders as a text wordmark.
  *
- * [TODO-CLIENT] Confirm the sectors. They were inferred, not supplied.
+ * [TODO-CLIENT] Confirm the sectors. They were inferred, not supplied: Keda is
+ * taken to be Keda (Ghana) Ceramics, the tile maker trading as Twyford, and
+ * Sunda to be Sunda International, the consumer-goods manufacturer. Peak
+ * Steel's is read from its name. Sankofa has none: the name alone does not
+ * say which company it is.
  *
  * If this array is ever emptied again, /clients returns a 404 and drops out of
  * the navigation, footer and homepage marquee by itself; add '/clients' back
@@ -30,8 +37,11 @@ export interface Client {
 export const CLIENTS: Client[] = [
   { name: 'Bel Aqua', sector: 'Beverages', logo: null },
   { name: 'Wilmar', sector: 'Agribusiness', logo: null },
-  { name: 'Guinness', sector: 'Brewing', logo: null },
   { name: 'Olam', sector: 'Agribusiness', logo: null },
+  { name: 'Keda', sector: 'Ceramics', logo: null },
+  { name: 'Peak Steel', sector: 'Steel', logo: null },
+  { name: 'Sunda', sector: 'Consumer goods', logo: null },
+  { name: 'Sankofa', sector: null, logo: null },
 ];
 
 export const CLIENTS_PUBLISHED = CLIENTS.length > 0;

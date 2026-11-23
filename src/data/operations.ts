@@ -59,10 +59,11 @@ export const CARGO_TYPES: { title: string; description: string; icon: LucideIcon
 /* ------------------------------------------------------------------ *
  * Why Fegeh Logistics — homepage dark band (WhyUs).
  *
- * Positioning, not claims of record. 03 and 04 rest on facts the client
- * supplied: the fleet is owned and operated by the business (FLEET_SIZE in
- * src/data/fleet.ts — change the written-out figure here with it), and the
- * business is run by a qualified industrial engineer.
+ * Positioning, not claims of record. 03, 04 and 05 rest on what the client
+ * supplied: the fleet is owned and operated by the business (03 states no
+ * vehicle count, at the client's request — see src/data/fleet.ts), the
+ * business is run by a qualified industrial engineer, and operations are
+ * managed by seasoned professionals (the client's own words for 05).
  * ------------------------------------------------------------------ */
 
 export const ADVANTAGES: { index: string; title: string; body: string }[] = [
@@ -79,7 +80,7 @@ export const ADVANTAGES: { index: string; title: string; body: string }[] = [
   {
     index: '03',
     title: 'A fleet of our own',
-    body: 'Twenty-seven trucks and freight vehicles operated directly, so capacity is committed against vehicles the business controls rather than hired in on the day.',
+    body: 'Trucks and freight vehicles owned and operated directly, so capacity is committed against vehicles the business controls rather than hired in on the day.',
   },
   {
     index: '04',
@@ -88,8 +89,8 @@ export const ADVANTAGES: { index: string; title: string; body: string }[] = [
   },
   {
     index: '05',
-    title: 'Planned before it is promised',
-    body: 'Dates are committed against the vehicles, storage space and people actually available, and the price is agreed before anything moves.',
+    title: 'Managed by seasoned professionals',
+    body: 'Day-to-day operations are managed by seasoned professionals. Dates are committed against the vehicles, storage space and people actually available, and the price is agreed before anything moves.',
   },
 ];
 

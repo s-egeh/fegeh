@@ -16,9 +16,10 @@ export interface FleetUnit {
   /**
    * Specs are qualitative by design.
    *
-   * [TODO-CLIENT] Supply publishable capacities and unit counts. Until then no
-   * capacity figure is invented and no placeholder string is rendered — add a
+   * [TODO-CLIENT] Supply publishable capacities. Until then no capacity figure
+   * is invented and no placeholder string is rendered — add a
    * `{ label: 'Capacity', value: '…' }` row here when the client confirms.
+   * Never a unit count: see the note above FLEET_FILTERS.
    */
   specs: FleetSpec[];
   /** Lightbox set for this unit type. */
@@ -37,16 +38,13 @@ export interface FleetUnit {
  * HANDOVER.md says what each one should show.
  */
 
-/**
- * Trucks and freight vehicles owned and operated by the business, as confirmed
- * by the client. A total across every vehicle type — which is why it lives
- * here and on the /fleet intro, never as a `Capacity` row in one unit's specs,
- * where 27 would read as 27 of that type.
- *
- * Also written out as "Twenty-seven" in ADVANTAGES (src/data/operations.ts);
- * change both together when the fleet changes.
+/*
+ * No fleet size, anywhere on the site. The client asked (2026-11-23) for the
+ * site to say nothing about how many vehicles the business runs — no total,
+ * no per-type count, no "27+" — so /fleet and the "why us" band describe the
+ * fleet as owned and operated without numbering it. Do not add a count back
+ * unless the client asks for one.
  */
-export const FLEET_SIZE = 27;
 
 export const FLEET_FILTERS: { value: FleetCategory | 'all'; label: string }[] = [
   { value: 'all', label: 'All' },

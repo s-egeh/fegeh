@@ -97,7 +97,7 @@ component.
 | Process steps, pricing factors, enquiry checklist | `src/data/operations.ts` |
 | Homepage hero slides | `src/data/hero.ts` |
 | Gallery images and captions | `src/data/gallery.ts` |
-| Team, clients, community work, company structure, milestones | `src/data/team.ts`, `clients.ts`, `csr.ts`, `org.ts`, `milestones.ts` — empty until supplied, except the four named clients |
+| Team, clients, community work, company structure, milestones | `src/data/team.ts`, `clients.ts`, `csr.ts`, `org.ts`, `milestones.ts` — empty until supplied, except the named clients |
 
 ### Content that switches on when supplied
 
@@ -105,7 +105,7 @@ Every list renders nothing while it is empty. `/team` and `/csr` return a 404 pa
 are marked `noindex`, and are left out of the navigation, footer and homepage until their data
 files hold real content. Filling the data switches them back on. The one manual step is the
 sitemap: remove the path from the `exclude` array in `next-sitemap.config.js`, as was done for
-`/clients` when its four clients were supplied. The full table is in `HANDOVER.md`, section 3.
+`/clients` when its first clients were supplied. The full table is in `HANDOVER.md`, section 3.
 
 ### Changing a phone number
 

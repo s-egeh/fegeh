@@ -22,7 +22,7 @@ delete rows as they close. Every item is also marked `[TODO-CLIENT]` in the sour
 | 3 | **Business hours.** The hours shown are placeholders, and are held out of the structured data because of it. | `COMPANY.hours` in `src/data/company.ts`; then `CONFIRMED.hours` in `src/lib/schema.ts` |
 | 4 | **A vector master of the logo (SVG, AI or PDF).** The supplied PNG is adequate at current sizes — every output is a downscale — but it is raster, so large-format print and any future upscale are limited by it. See section 4. | Export a large transparent PNG to `assets/brand/fegeh-logo-source.png` and run `npm run build:brand` |
 | 5 | **Photography.** Every image under `public/images/` is temporary stock standing in for the client's own, as recorded in `docs/image-credits.md`. See section 4. | `public/images/`; alt text in `src/data`; `docs/image-credits.md` |
-| 6 | **The four client sectors.** Bel Aqua (Beverages), Wilmar (Agribusiness), Guinness (Brewing) and Olam (Agribusiness) were inferred, not supplied, and each shows under its name on `/clients`. Confirm or correct them. The client holds permission to name the four; their logos stay off the site unless each company supplies the file together with permission to use it. | `CLIENTS` in `src/data/clients.ts` |
+| 6 | **The client list: sectors, Sankofa, permission.** The seven named clients are Bel Aqua, Wilmar, Olam, Keda, Peak Steel, Sunda and Sankofa. Guinness was removed and the last four added at the client's request on 2026-11-23. Each sector shows under its name on `/clients`, and all were inferred, not supplied: Bel Aqua (Beverages), Wilmar and Olam (Agribusiness), Keda (Ceramics — taken to be Keda (Ghana) Ceramics, which trades as Twyford), Peak Steel (Steel, from the name) and Sunda (Consumer goods — taken to be Sunda International). **Sankofa shows no sector:** the name alone does not say which company it is, so give its full company name and sector. Confirm or correct the rest, and confirm permission to name the four added; it is on record for Bel Aqua, Wilmar and Olam. Logos stay off the site unless each company supplies the file together with permission to use it. | `CLIENTS` in `src/data/clients.ts` |
 | 7 | **Mail delivery.** Enquiries are delivered to the Gmail address, but Resend cannot send *from* Gmail: the sender must be on a domain verified in Resend. Create a Resend account, verify `fegehlogistics.com`, and set `RESEND_API_KEY`, `CONTACT_FROM_EMAIL` (for example `website@fegehlogistics.com`) and `CONTACT_TO_EMAIL` (`fegehlogistic2022@gmail.com`). Then send one test from each of the three forms. See section 6. | Host env |
 | 8 | **Service set sign-off.** The four services — Freight & Haulage, Warehousing & Storage, Distribution, Freight Forwarding — and their slugs were proposed, not supplied. Confirm the set, the names, every capability, and both columns of every "what's included / what isn't" block. | `src/data/services.ts` |
 | 9 | **Customs and forwarding position.** The freight-forwarding page describes coordination and documentation *support* only, and lists customs declarations as a licensed broker under "not included". Confirm whether Fegeh Logistics holds a customs broker licence, works through a partner, or neither, before the page is published. | `src/data/services.ts`, `src/data/faq.ts` |
@@ -38,8 +38,11 @@ Numbered in the order they matter for launch.
 Confirmed and no longer listed: the legal name; both phone numbers (operations `024 454 6668`,
 managing proprietor `025 611 3380`) and the WhatsApp line (the operations number); the email
 address; the head office address, its Ghana Post GPS code and the P.O. Box; the business
-registration and TIN; that the 27 vehicles are owned rather than hired in; and permission to name
-four clients.
+registration and TIN; that the vehicles are owned rather than hired in; and permission to name
+Bel Aqua, Wilmar and Olam.
+
+The site deliberately states no fleet size — no total, no per-type count, no "27+" — at the
+client's request (2026-11-23). Do not add one back unless the client asks.
 
 1. Confirmation that `fegehlogistic2022@gmail.com` is spelled as intended, and whether form enquiries should also go anywhere else.
 2. Business hours (the current hours are a placeholder default).
@@ -47,7 +50,7 @@ four clients.
 4. Social media accounts, if any.
 5. Sign-off on the four services and their slugs.
 6. Customs broker licence status, or the clearing partner used.
-7. Which vehicle and equipment types make up the 27 owned vehicles, and any publishable capacities or per-type counts.
+7. Which vehicle and equipment types make up the owned fleet, and any publishable capacities. No vehicle counts: see the note above.
 8. The regular routes, and whether any cross-border routes are actively served.
 9. The goods handled, and any refused (for example chilled, frozen or hazardous goods).
 10. Whether vehicle tracking is offered to clients. The client's profile says goods are "monitored to ensure safety from pickup to delivery": say whether that means GPS tracking of vehicles or supervised handling, and `/safety-compliance` will say so plainly.
@@ -64,7 +67,7 @@ four clients.
 21. Department contact routing (operations, warehouse, accounts), if enquiries should go to different people.
 22. The management team: names, roles, biographies, credentials, portraits, and each person's permission to publish. Optionally a chief executive's statement in their own words.
 23. Company structure: departments and what each owns.
-24. Logos for the four named clients, only if each company supplies the file with permission to use it; any further clients that may be named.
+24. Logos for the named clients, only if each company supplies the file with permission to use it; any further clients that may be named.
 25. Testimonials with named people, companies and written permission.
 26. Community and sustainability work, with photographs.
 27. Further company milestones with dates. The registration date is the only one so far.
@@ -74,8 +77,7 @@ four clients.
 31. A vector master of the logo (SVG, AI or PDF) — see section 4.
 32. A company profile PDF, if one should be downloadable. The download button was removed and returns only when a real file exists.
 33. Standard terms of carriage or storage, if they exist, so `/terms` can link to them.
-34. The fleet figure. The client's profile says "27+ trucks"; the site says 27, because a number can be checked and "27+" cannot. Confirm 27 is the count, and say when it changes.
-35. Whether storage is at the Afienya premises. The site places the warehouse at the base in Afienya, as it previously placed it at the old address; confirm, or say where goods are stored.
+34. Whether storage is at the Afienya premises. The site places the warehouse at the base in Afienya, as it previously placed it at the old address; confirm, or say where goods are stored.
 
 Where each one goes:
 
@@ -94,8 +96,7 @@ Where each one goes:
 | 27 | `src/data/milestones.ts` |
 | 28 | `STRATEGIC_PILLARS`, `MARKET_DRIVERS` and `FUTURE_PLANS` in `src/data/company.ts` |
 | 29 | `CAREERS_COPY` and `CAREERS_BLOCKS` in `src/data/org.ts` |
-| 34 | `FLEET_SIZE` in `src/data/fleet.ts`, and the written-out figure in `ADVANTAGES` in `src/data/operations.ts` |
-| 35 | Location copy in `src/data/services.ts`, `faq.ts`, `fleet.ts` and `hero.ts` |
+| 34 | Location copy in `src/data/services.ts`, `faq.ts`, `fleet.ts` and `hero.ts` |
 
 ### Business details on record
 
@@ -127,7 +128,7 @@ its data — no component needs editing.
 |---|---|---|
 | `TEAM` (`src/data/team.ts`) | Yes | `/team` (404 page, `noindex`), its nav and footer links, the homepage leadership preview, the "Meet the management team" link on `/about` |
 | `CEO_STATEMENT` + a featured team member | Yes | The chief executive statement on `/about` |
-| `CLIENTS` (`src/data/clients.ts`) | No — four named clients, published | `/clients`, the Clients nav item and footer link, and the homepage clients marquee all render |
+| `CLIENTS` (`src/data/clients.ts`) | No — seven named clients, published | `/clients`, the Clients nav item and footer link, and the homepage clients marquee all render |
 | `TESTIMONIALS` | Yes | The testimonial rail on `/clients` |
 | `CSR_INITIATIVES` (`src/data/csr.ts`) | Yes | `/csr` (404 page, `noindex`), its nav and footer links, the homepage CSR band |
 | `DIVISIONS` (`src/data/org.ts`) | Yes | The structure diagram on `/about` and `/team` |
@@ -392,8 +393,8 @@ anywhere, point `danger` at `var(--gold-ink)` in `tailwind.config.ts` — it pas
 
 ## 9. Verification status
 
-Run on the Fegeh Logistics build with the Afienya address, two phone numbers and the four named
-clients, 2026-11-23 (Next.js 14.2.35, Node 24):
+Run on the Fegeh Logistics build with the Afienya address, two phone numbers, the seven named
+clients and no fleet count, 2026-11-23 (Next.js 14.2.35, Node 24):
 
 | Check | Scope | Result |
 |---|---|---|
@@ -411,6 +412,8 @@ Also checked against the running build: every `tel:` link on 13 pages is one of 
 every WhatsApp link is `wa.me/233244546668`, and the old nine-digit number appears nowhere; the
 JSON-LD carries both numbers and the postal address, and holds back email, hours and the Ghana Post
 GPS code; the TIN appears on no page. The `/contact` map embed was loaded and lands in Afienya.
+No page states a number of trucks or vehicles, in its text or its markup; `/` and `/clients` show
+all seven clients and no Guinness, and the `/clients` grid closes its last row at 768 and 1440px.
 
 Two build-environment problems came up during that run. Neither is in the code, but both look
 like site faults:

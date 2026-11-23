@@ -13,7 +13,7 @@ import { FleetFilterGrid } from '@/components/sections/FleetFilterGrid';
 import { PageHero } from '@/components/sections/PageHero';
 import { ButtonLink } from '@/components/ui/Button';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { FLEET_SIZE, MAINTENANCE_PILLARS } from '@/data/fleet';
+import { MAINTENANCE_PILLARS } from '@/data/fleet';
 import { DRIVER_POINTS, DRIVERS_COPY, LOAD_SECURING, MAINTENANCE_BLOCKS } from '@/data/operations';
 import { pageMetadata } from '@/lib/seo';
 
@@ -65,8 +65,8 @@ export default function FleetPage() {
               </Reveal>
               <Reveal delay={40}>
                 <p className="max-w-measure t-body-lg text-slate-600">
-                  Fegeh Logistics owns and operates {FLEET_SIZE} trucks and freight vehicles. They
-                  and the handling equipment are managed as one fleet. Maintenance schedules,
+                  Fegeh Logistics owns and operates its trucks and freight vehicles. They and the
+                  handling equipment are managed as one fleet. Maintenance schedules,
                   safety compliance and dispatch are planned together, so a breakdown is a
                   maintenance failure the business owns, not an excuse passed to the client.
                 </p>

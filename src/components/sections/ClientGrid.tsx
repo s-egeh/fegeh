@@ -30,21 +30,38 @@ function Cell({ client, delay }: { client: Client; delay: number }) {
           )}
         </div>
 
-        <span className="u-mono text-[10px] text-slate-600">{client.sector}</span>
+        {/* A blank line, not nothing, when the sector is unknown: the name
+            stays level with its neighbours in the row. */}
+        <span className="u-mono text-[10px] text-slate-600" aria-hidden={client.sector ? undefined : true}>
+          {client.sector ?? ' '}
+        </span>
       </div>
     </Reveal>
   );
+}
+
+/*
+ * Empty cells that close the last row, so the hairline grid ends square
+ * instead of with a ragged edge: as many as the four-across row needs at lg,
+ * of which only the two-across row's share shows at sm (none in one column).
+ * Seven clients take one filler at both widths.
+ */
+function fillers(count: number) {
+  const atLg = (4 - (count % 4)) % 4;
+  const atSm = count % 2;
+  return Array.from({ length: atLg }, (_, index) => (index < atSm ? 'hidden sm:block' : 'hidden lg:block'));
 }
 
 export function ClientGrid() {
   if (CLIENTS.length === 0) return null;
 
   return (
-    // Four across at desktop: four named clients fill one row instead of
-    // leaving the fourth alone under a row of three.
     <div className="grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:grid-cols-4">
       {CLIENTS.map((client, index) => (
         <Cell key={client.name} client={client} delay={Math.min(index, 5) * 70} />
+      ))}
+      {fillers(CLIENTS.length).map((visibility, index) => (
+        <div key={`filler-${index}`} aria-hidden="true" className={`${visibility} border-b border-r border-line`} />
       ))}
     </div>
   );
